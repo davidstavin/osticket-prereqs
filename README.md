@@ -45,7 +45,7 @@ Start by creating a VM in MS Azure
 <img width="7680" height="4141" alt="osTicket_vm-creation" src="https://github.com/user-attachments/assets/40d9e748-afe8-4023-8b80-d9b384fdbb2a" />
 
 Copy the Public IP of the VM
-<img width="7680" height="4151" alt="osTicket_grab-ip" src="https://github.com/user-attachments/assets/675456ab-9c77-426c-bcef-4ffb7860fac0" />
+<img width="7680" height="1698" alt="osTicket_grab-ip" src="https://github.com/user-attachments/assets/679a8073-1a19-479e-adf5-b8c81ffcfe0a" />
 
 
 ## Step 2: Download osTicket Files & Dependencies
