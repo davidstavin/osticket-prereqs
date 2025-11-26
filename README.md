@@ -20,24 +20,16 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 - Windows 11 Pro (25H2)</b>
 
-<h2>Installation Steps</h2>
+## Installation Steps
 
-- Create a Virtual Machine (VM)
-- Download osTicekt Files & Dependencies
-- Enable IIS with CGI in Windows
-- Install the Dependencies
-  - PHP Manager for IIS
-  - IIS URL Rewrite
-  - Configuring a PHP Directory
-  - Microsoft Visual Studio C++ Redistributable
-  - MySQL Server
-- Register PHP
-- Install osTicket
-  -  Enable Extensions
-  -  Rename ost-config.php
-  -  Assign permissions
-- Setup osTicket from a webUI
-- Install HeidiSQL  
+1. Create a Virtual Machine (VM)
+2. Download osTicekt Files & Dependencies
+3. Enable IIS with CGI in Windows
+4. Install the Dependencies
+5. Register PHP
+6. Install osTicket
+7. Setup osTicket from a webUI
+8. Install HeidiSQL  
 
 ## Step 1: Create a Virtual Machine
 
@@ -49,13 +41,34 @@ Copy the Public IP of the VM
 
 
 ## Step 2: Download osTicket Files & Dependencies
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<br />
+After completing step 1, and signing into the VM using Remote Desktop, proceed with downloading the neccessary dependencies for osTicket
+The following urls are the dependencies, listed in the order we will be installing them. Please download them to your computer.
+
+### Dependencies
+
+[PHP](https://www.php.net/downloads.php)
+- General Purpose FOSS Scripting Language for web-development. Allows for the creation of interactive websites
+
+[PHP Manager for IIS](https://www.iis.net/downloads/community/2018/05/php-manager-150-for-iis-10) (If the download url is broken, download from [Github](https://github.com/RonaldCarter/PHPManager/releases)
+- Useful tool for managing PHP Installations (e.g., registration, settings)
+
+[IIS URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)
+- Allows adminstrators to create URL rules such as redirects, HTTP requests, and URL simplification for search-engine indexing and memorizability
+
+[Visual C++ Reistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-supported-redistributable-version)
+- Reequired package to run applications developed with Visual C++
+
+[MySQL Server (Community Edition)](https://dev.mysql.com/downloads/mysql/) (if you building for production: [MySQL Server (Enterprise Edition)](https://www.mysql.com/downloads/)
+- Leading Database for Web Applications. Uses a relational database to organize, structure, and manage data. (e.g., storing and retrievingh)
+
+[osTicket](https://osticket.com/download/)
+- WebUI-based Helpdesk Ticketing Application, common in customer service environments for issue tracking and resolution
+
+[HeidiSQL](https://www.heidisql.com/download.php)
+- FOSS administration tool for working on databases like MaraDB and MySQL. Provides a GUI and is extremely popular
+
+<img width="2103" height="1193" alt="osTicket_downloads-fixed" src="https://github.com/user-attachments/assets/6a6a3aa0-c61e-427b-b4d3-1282708db900" />
+
 
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
