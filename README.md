@@ -22,7 +22,7 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 ## Installation Steps
 
-1. [Create a Virtual Machine (VM)](https://github.com/davidstavin/osticket-prereqs/edit/main/README.md#step-1-create-a-virtual-machine)
+1. [Create a Virtual Machine (VM)](https://github.com/davidstavin/osticket-prereqs/blob/main/README.md#step-1-create-a-virtual-machine)
 2. [Download osTicekt Files & Dependencies](https://github.com/davidstavin/osticket-prereqs/blob/main/README.md#step-2-download-osticket-files--dependencies)
 3. Enable IIS with CGI in Windows
 4. Install the Dependencies
