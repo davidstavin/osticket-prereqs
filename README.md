@@ -25,8 +25,8 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 1. [Create a Virtual Machine (VM)](https://github.com/davidstavin/osticket-prereqs/blob/main/README.md#step-1-create-a-virtual-machine)
 2. [Download osTicekt Files & Dependencies](https://github.com/davidstavin/osticket-prereqs/blob/main/README.md#step-2-download-osticket-files--dependencies)
-3. Enable IIS with CGI in Windows
-4. Install the Dependencies
+3. [Enable IIS with CGI in Windows](https://github.com/davidstavin/osticket-prereqs/tree/main?tab=readme-ov-file#step-3-enable-iis-with-cgi)
+4. [Install the Dependencies](https://github.com/davidstavin/osticket-prereqs/tree/main?tab=readme-ov-file#step-4-install-the-dependencies)
 5. Register PHP
 6. Install osTicket
 7. Setup osTicket from a webUI
@@ -104,7 +104,7 @@ Install Rewrite
 <img width="2103" height="1193" alt="osTicket_downloads-fixed-Rewrite" src="https://github.com/user-attachments/assets/a7b4f375-9cd8-446e-8457-533a45949f55" />
 <img width="992" height="768" alt="osTicket-Rewrite" src="https://github.com/user-attachments/assets/4051d2b9-eb0c-429c-b515-6f2143c66345" />
 
-iii. Extract PHP files to C:\PHP
+### iii. Extract PHP files to C:\PHP
 Extract the `.zip` containing the PHP files, specifiying `C:\PHP` as the extract path
 <img width="2082" height="1553" alt="osTicket-ExtractPHP-annotated" src="https://github.com/user-attachments/assets/8eb88151-6e9c-45f7-958a-52fff9e5b49c" />
 
