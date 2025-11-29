@@ -115,7 +115,8 @@ Extracting the files this way, will automatically create a new folder at the des
 Open vcRedist. Follow the prompts to install the package.
 <img width="941" height="589" alt="osTicket-vcRedist-Install" src="https://github.com/user-attachments/assets/654f555c-6010-451d-9d64-0a16640d29d7" />
 
-### v. after installing vcRedist, install the MySQL server
+### v. Install MySQL
+after installing vcRedist, install the MySQL server
 <img width="993" height="771" alt="osTicket-mySQL-install" src="https://github.com/user-attachments/assets/047abb19-8c5d-4435-bd68-14ac1a757f45" />
 
 select 'typical'
@@ -130,8 +131,9 @@ within the configurator set your root password
 after selecting the options suited for your use case, click next and allow the progrom to apply its changes.
 <img width="1568" height="1229" alt="mySQL config complete" src="https://github.com/user-attachments/assets/e54b818b-b773-4346-81af-38886179efb0" />
 
-### vi. 
+## Step 5: Register PHP within IIS
 Now we are going to register the PHP directory within our IIS Manager
+
 Press `Windows + R`, type `inetmgr` and hit enter
 <img width="768" height="479" alt="Win+R IIS-Manager" src="https://github.com/user-attachments/assets/d7950929-77df-4b6b-854b-2e25e2614ce3" />
 
@@ -156,4 +158,14 @@ Next to apply these changes, hit STOP on the action side panel.
 Followed by START, once complete.
 <img width="2615" height="1718" alt="click-start-anno" src="https://github.com/user-attachments/assets/f8a19bf3-8747-4fdc-aa97-f5271b5f0e67" />
 
-### vii. Install osTicket
+
+
+## Step 6: Install osTicket
+
+
+
+## Step 7: Setup osTicket in the WebUI
+
+
+
+## Step 8: Install HeidiSQL
