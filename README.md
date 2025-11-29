@@ -106,8 +106,54 @@ Install Rewrite
 
 ### iii. Extract PHP files to C:\PHP
 Extract the `.zip` containing the PHP files, specifiying `C:\PHP` as the extract path
-<img width="2082" height="1553" alt="osTicket-ExtractPHP-annotated" src="https://github.com/user-attachments/assets/8eb88151-6e9c-45f7-958a-52fff9e5b49c" />
+<img width="2164" height="1528" alt="osTicket-ExtractPHP-annotated" src="https://github.com/user-attachments/assets/b2eef2fd-00a1-410f-92dd-fecfd95bb682" />
 
 Extracting the files this way, will automatically create a new folder at the destination path
 <img width="1146" height="942" alt="osTicket-PHPExtactDirectory" src="https://github.com/user-attachments/assets/4ad3f907-74cc-4234-ad93-c7af095701e8" />
 
+### iv. Install Microsoft Visual Studio C++ Redistributable
+Open vcRedist. Follow the prompts to install the package.
+<img width="941" height="589" alt="osTicket-vcRedist-Install" src="https://github.com/user-attachments/assets/654f555c-6010-451d-9d64-0a16640d29d7" />
+
+### v. after installing vcRedist, install the MySQL server
+<img width="993" height="771" alt="osTicket-mySQL-install" src="https://github.com/user-attachments/assets/047abb19-8c5d-4435-bd68-14ac1a757f45" />
+
+select 'typical'
+<img width="984" height="771" alt="osTicket-mySQL-Typical" src="https://github.com/user-attachments/assets/af7339e6-31ca-4063-9c41-0dca49ebb72d" />
+
+open the launch configurator after installation
+<img width="993" height="773" alt="mySQL-Launch-configurator" src="https://github.com/user-attachments/assets/fc9a5c0c-ff08-43c8-b7fe-45d1526b7707" />
+
+within the configurator set your root password
+<img width="1570" height="1229" alt="mySQL-set root password" src="https://github.com/user-attachments/assets/9cd82fad-4cab-481f-bfa9-31b719d471a3" />
+
+after selecting the options suited for your use case, click next and allow the progrom to apply its changes.
+<img width="1568" height="1229" alt="mySQL config complete" src="https://github.com/user-attachments/assets/e54b818b-b773-4346-81af-38886179efb0" />
+
+### vi. 
+Now we are going to register the PHP directory within our IIS Manager
+Press `Windows + R`, type `inetmgr` and hit enter
+<img width="768" height="479" alt="Win+R IIS-Manager" src="https://github.com/user-attachments/assets/d7950929-77df-4b6b-854b-2e25e2614ce3" />
+
+within the new window, open PHP Manager
+<img width="2614" height="1649" alt="iismanager-opened-annotated" src="https://github.com/user-attachments/assets/cfbdc66a-5f73-4858-8974-647b947bf05e" />
+
+Click "Register New PHP Version"
+<img width="2619" height="1647" alt="register-new-php version-anno" src="https://github.com/user-attachments/assets/793f4316-6855-4773-92e4-93f1c579c64b" />
+
+Type `C:\PHP\php-cgi.exe` or navigate to it manually by clicking browse
+<img width="1023" height="446" alt="phpversiondirectory" src="https://github.com/user-attachments/assets/0d69a1f0-f495-4ecd-9a40-b730d7162683" />
+
+(The exe file depicted through 'browse')
+<img width="2365" height="1424" alt="phpversionnav" src="https://github.com/user-attachments/assets/622b3685-47af-4e6e-9018-1d81320a5764" />
+
+Click OK, and you will be returned to the PHP Manager which should have the options "change php version" now interactable
+<img width="2614" height="1644" alt="php-registered" src="https://github.com/user-attachments/assets/eaa28ce8-dcc2-445a-900b-407be7a7e3c4" />
+
+Next to apply these changes, hit STOP on the action side panel.
+<img width="2611" height="1644" alt="click-stop-anno" src="https://github.com/user-attachments/assets/a79a40df-0a35-4910-9469-8a0d7d4d8247" />
+
+Followed by START, once complete.
+<img width="2615" height="1718" alt="click-start-anno" src="https://github.com/user-attachments/assets/f8a19bf3-8747-4fdc-aa97-f5271b5f0e67" />
+
+### vii. Install osTicket
