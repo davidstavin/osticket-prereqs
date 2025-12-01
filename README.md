@@ -158,11 +158,22 @@ Next to apply these changes, hit STOP on the action side panel.
 Followed by START, once complete.
 <img width="2615" height="1718" alt="click-start-anno" src="https://github.com/user-attachments/assets/f8a19bf3-8747-4fdc-aa97-f5271b5f0e67" />
 
-
-
 ## Step 6: Install osTicket
 
+To install osTicket extract the .zip containing the files.
 
+Once extracted, move the `Upload` folder by cutting it `CTRL + X` or using the GUI
+<img width="2361" height="1380" alt="cut-upload-anno" src="https://github.com/user-attachments/assets/7906f96d-cfa6-469e-8f02-20ff84ce1aca" />
+
+Navigate to your C:/ drive, and open the `inetpub` folder
+<img width="2349" height="1375" alt="c-driectory-anno" src="https://github.com/user-attachments/assets/c3e56543-3013-4ddf-93cc-9077382b13a4" />
+
+Open the `wwwroot` folder and paste the `Upload` folder `CTRL + V` or using the GUI
+<img width="2360" height="1373" alt="paste-osticket-anno" src="https://github.com/user-attachments/assets/50a127e7-3992-4cb6-a479-ebb355a76579" />
+
+Now rename the `Upload` folder to `osTicket`
+<img width="2360" height="1367" alt="rename file-anno" src="https://github.com/user-attachments/assets/7c468902-39d6-4518-b4bf-90a4a9fdabfb" />
+<img width="2351" height="1371" alt="file renamed-anno" src="https://github.com/user-attachments/assets/23d20620-adbf-4d7f-ba62-635397912a2c" />
 
 ## Step 7: Setup osTicket in the WebUI
 
