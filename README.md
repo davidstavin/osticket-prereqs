@@ -177,6 +177,11 @@ Now rename the `Upload` folder to `osTicket`
 
 ## Step 7: Setup osTicket in the WebUI
 
+In the VMs web browser, enter `http://localhost/osTIcket/setup/` to the url field and you should be redirected to the osTicket setup page.
+<img width="2514" height="1981" alt="osTicket page (after stop-starting IIS)" src="https://github.com/user-attachments/assets/69b1ea9e-44a7-4f7a-92eb-2376f93dcbf3" />
 
+Enable the extensions, by opening IIS manager, from Step 3
+
+Within PHP Manager click "enable or disable extensions"
 
 ## Step 8: Install HeidiSQL
