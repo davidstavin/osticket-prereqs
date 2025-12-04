@@ -66,7 +66,7 @@ The following urls are the dependencies, listed in the order we will be installi
 - WebUI-based Helpdesk Ticketing Application, common in customer service environments for issue tracking and resolution
 
 [HeidiSQL](https://www.heidisql.com/download.php)
-- FOSS administration tool for working on databases like MaraDB and MySQL. Provides a GUI and is extremely popular
+- FOSS administration tool for working on databases like MariaDB and MySQL. Provides a GUI and is extremely popular
 
 Your downloads folder should appear as such
 <img width="2103" height="1193" alt="osTicket_downloads-fixed" src="https://github.com/user-attachments/assets/6a6a3aa0-c61e-427b-b4d3-1282708db900" />
@@ -177,11 +177,61 @@ Now rename the `Upload` folder to `osTicket`
 
 ## Step 7: Setup osTicket in the WebUI
 
-In the VMs web browser, enter `http://localhost/osTIcket/setup/` to the url field and you should be redirected to the osTicket setup page.
+In the VMs web browser, enter `http://localhost/osTIcket/setup/` to the url field and you should be redirected to the osTicket setup page. This confirms that osTicket is installed and working.
 <img width="2514" height="1981" alt="osTicket page (after stop-starting IIS)" src="https://github.com/user-attachments/assets/69b1ea9e-44a7-4f7a-92eb-2376f93dcbf3" />
 
 Enable the extensions, by opening IIS manager, from Step 3
 
 Within PHP Manager click "enable or disable extensions"
+<img width="2617" height="1713" alt="php-manager-extensions-anno" src="https://github.com/user-attachments/assets/17422319-43e4-4496-8199-fab69c428f04" />
+
+Find and select an extension called `php_intl.dll`, and enable it using the action menu in the upper right.
+
+_Note_. As of PHP 8.4 the imap extension is deprecated and no longer required to run osTicket (As referenced [here](https://www.php.net/manual/en/imap.installation.php) and [here)](https://forum.osticket.com/d/106559-php-84-drops-built-in-php-imap-support)
+<img width="2611" height="1711" alt="phpmanager - enable phpintl-anno" src="https://github.com/user-attachments/assets/8ca739e3-3aa1-4325-939e-11c71adda50a" />
+
+refreshing the osTicket website should now redirect you to the "missing config file" screen
+<img width="2500" height="1805" alt="missing config" src="https://github.com/user-attachments/assets/20b5797c-846c-4a3c-9eda-5e7c749df189" />
+
+To fix this navigate to `C:\inetpub\wwwroot\osTicket\include` and rename a file called `ost-sampleconfig.php` to `ost-config.php`
+<img width="2484" height="1791" alt="rename ost-sample-config-anno" src="https://github.com/user-attachments/assets/2192148c-44b5-4782-bac8-eeb79e21ba0e" />
+As depicted here
+<img width="1357" height="51" alt="ost-configphp renamed" src="https://github.com/user-attachments/assets/9632244c-b9ef-4aa2-9a22-1e8285891195" />
+
+Next open the config file's properties `Alt + Enter` or by using the GUI
+<img width="1706" height="1003" alt="open properites-anno" src="https://github.com/user-attachments/assets/e2c1869d-9729-4cf3-bef6-72e2114d78db" />
+
+Open "Security" 
+<img width="818" height="994" alt="open security and advanced-anno" src="https://github.com/user-attachments/assets/97d8c888-6673-4960-91de-2a61cf037fd8" />
+
+disable inheritance + all
+<img width="1536" height="1004" alt="disable all inherited permissions-anno" src="https://github.com/user-attachments/assets/e4ab2ed3-a5f0-4abf-8482-98ce2fe5c5d0" />
+
+add new permssion
+<img width="2493" height="1158" alt="add permission and select principal-anno" src="https://github.com/user-attachments/assets/50081a8a-964b-4701-ad1e-6c51d8c3d219" />
+
+Type `Everyone` select "check Names" to fix any syntax errors, and press `Okay`
+_Note_. For this tutorial 'Everyone' will have adminsistrator privileges. This is unwise for production environments, andd the actual permissions will be dependent on your use case
+<img width="2487" height="1153" alt="everyone, check names, okay-anno" src="https://github.com/user-attachments/assets/32c05f1a-a526-41f4-854b-02ff95ad1e26" />
+
+enable full control, modify, and write. Then press okay
+<img width="2493" height="1158" alt="enable fc, mod, wr-anno" src="https://github.com/user-attachments/assets/01ec9a0e-312d-43f8-9adf-d8a5f6d74a83" />
+
+On the next screen press `Apply` then `Okay`
+<img width="1535" height="1003" alt="apply and okay-anno" src="https://github.com/user-attachments/assets/6ceca7d6-1fb1-4adb-aceb-c2f03e7f8be9" />
+
+The osticket page should now look like this upon refreshing
+<img width="2507" height="1802" alt="new osTicket page" src="https://github.com/user-attachments/assets/99db8e53-1bd1-4e39-b883-beb3931c875c" />
+
+Fill out most of the form but do not install, leave the database settings blank for now, those will be filled after the next step
+<img width="2554" height="2559" alt="form" src="https://github.com/user-attachments/assets/65766943-3289-47c8-83a5-a84670a816d3" />
+
+Install HeidiSQL. Select install for all users (again this is dependent on your use case, but generally this setting is unwise for production)
+<img width="2485" height="1504" alt="install heidi-anno" src="https://github.com/user-attachments/assets/81dc6dc6-4b53-48e2-94b2-73a9012dc1dc" />
+
+Follow the prompts to install the software.
+<img width="1199" height="899" alt="Screenshot 2025-12-01 202912" src="https://github.com/user-attachments/assets/f1cbda35-1f4c-4d54-b2ba-fa88101bb330" />
+
+
 
 ## Step 8: Install HeidiSQL
