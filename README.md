@@ -5,13 +5,9 @@
 # osTicket - Installing a Modern Ticketing System from Scratch
 This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.
 
-*Documentation written assuming Windows 11 as base Operarting System*
+...osTicket is a ...... placeholder summary
 
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: How To Install osTicket with Prerequisites](https://www.youtube.com)
-
-<h2>Environments and Technologies Used</h2>
+## Environments and Technologies Used
 
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
@@ -19,7 +15,9 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 ## Operating Systems Used
 
-- Windows 11 Pro (25H2)
+- Remote Computer: Windows 11 Pro (25H2)
+- Host Computer: Windows 11 Home (25H2)
+*Documentation written assuming Windows 11 as host Operarting System*
 
 ## Installation Steps
 
@@ -29,21 +27,29 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 4. [Install the Dependencies](https://github.com/davidstavin/osticket-prereqs/tree/main?tab=readme-ov-file#step-4-install-the-dependencies)
 5. [Register PHP within IIS](https://github.com/davidstavin/osticket-prereqs/tree/main#step-5-register-php-within-iis)
 6. [Install osTicket](https://github.com/davidstavin/osticket-prereqs/tree/main#step-6-install-osticket)
-7. [Setup osTicket in the WebUI](https://github.com/davidstavin/osticket-prereqs/tree/main#step-7-setup-osticket-in-the-webui)
+7. [Setup osTicket WebUI and HeidiSQL](https://github.com/davidstavin/osticket-prereqs/tree/main#step-7-setup-osticket-webui-and-heidisql)
 8. [Post-Install Cleanup](https://github.com/davidstavin/osticket-prereqs/tree/main#step-8-post-install-cleanup)
 
 ## Step 1: Create a Virtual Machine
 
-Start by creating a VM in MS Azure (NOTE UPDATE TO 4 vCPU image)
+Start by creating a VM in MS Azure with at least 4 vCPUs. Below is the summary of the VM used in this tutorial. (NOTE UPDATE TO 4 vCPU image)
 <img width="7680" height="4141" alt="osTicket_vm-creation" src="https://github.com/user-attachments/assets/40d9e748-afe8-4023-8b80-d9b384fdbb2a" />
 
-Copy the Public IP of the VM
+After deployment, navigate to the VM dashboard within Azure and copy the Public IP of the new VM `CTRL + C`
 <img width="7680" height="1698" alt="osTicket_grab-ip" src="https://github.com/user-attachments/assets/679a8073-1a19-479e-adf5-b8c81ffcfe0a" />
 
+Using the Windows Start Menu search for `Remote Desktop Connection` or `RDC` and paste the VM's IP Address `CTRL + V`
+<img width="805" height="472" alt="osTicket-rdc-anno" src="https://github.com/user-attachments/assets/c17ca01c-38be-48fb-bab9-794995849124" />
+
+Then sign into the VM using the security credentials assigned during its creation
+
+img...
 
 ## Step 2: Download osTicket Files & Dependencies
 After completing step 1, and signing into the VM using Remote Desktop, proceed with downloading the neccessary dependencies for osTicket
-The following urls are the dependencies, listed in the order we will be installing them. Please download them to your computer.
+The following urls are the dependencies, listed in the order we will be installing them. Please download them to the remote computer.
+
+_Note._ Windows 11 uses a x64 architecture, and is not compatabile with x86 (32-bit) software. Thus all the dependencies should be in the x64 format.
 
 ### Dependencies
 
@@ -51,16 +57,16 @@ The following urls are the dependencies, listed in the order we will be installi
 - General Purpose FOSS Scripting Language for web-development. Allows for the creation of interactive websites
 
 [PHP Manager for IIS](https://www.iis.net/downloads/community/2018/05/php-manager-150-for-iis-10) (If the download url is broken, download from [Github](https://github.com/RonaldCarter/PHPManager/releases)
-- Useful tool for managing PHP Installations (e.g., registration, settings)
+- Useful tool for managing PHP Installations, such as settings, extensions, and PHP registration
 
 [IIS URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)
 - Allows adminstrators to create URL rules such as redirects, HTTP requests, and URL simplification for search-engine indexing and memorizability
 
 [Visual C++ Reistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-supported-redistributable-version)
-- Reequired package to run applications developed with Visual C++
+- Required package to run applications developed with Visual C++
 
 [MySQL Server (Community Edition)](https://dev.mysql.com/downloads/mysql/) (if you building for production: [MySQL Server (Enterprise Edition)](https://www.mysql.com/downloads/)
-- Leading Database for Web Applications. Uses a relational database to organize, structure, and manage data. (e.g., storing and retrievingh)
+- Leading Database for Web Applications. Uses a relational database to organize, structure, and manage data. (e.g., storing and retrieving)
 
 [osTicket](https://osticket.com/download/)
 - WebUI-based Helpdesk Ticketing Application, common in customer service environments for issue tracking and resolution
@@ -68,14 +74,15 @@ The following urls are the dependencies, listed in the order we will be installi
 [HeidiSQL](https://www.heidisql.com/download.php)
 - FOSS administration tool for working on databases like MariaDB and MySQL. Provides a GUI and is extremely popular
 
-Your downloads folder should appear as such
+Below is an image of the downloads folder containing all the (x64) dependencies used in this tutorial.
 <img width="2103" height="1193" alt="osTicket_downloads-fixed" src="https://github.com/user-attachments/assets/6a6a3aa0-c61e-427b-b4d3-1282708db900" />
 
 ## Step 3: Enable IIS with CGI
+Before installing the dependencies IIS for Windows needs to be enabled.
 
-Within the VM, Press `Windows + R` then type `optionalfeatures` and hit enter. Make sure that the task is run with adminstrator privleges as depicted. 
+Within the Remote VM, Press `Windows + R` then type `optionalfeatures`, ensure "run with adminstrator privleges" is depicted and hit `Enter` (Use `Ctrl + Shift + Enter` if not depicted)
 
-*Alternatively*, you can search for `Turn Windows features on or off` in the start menu, right-click and press "Run as Adminstrator"
+*Alternatively*, you can search for `Turn Windows features on or off` in the Windows start menu, right-click and press "Run as Adminstrator"
 <img width="771" height="484" alt="osTicket-WinR" src="https://github.com/user-attachments/assets/ec64a789-99a8-4076-9394-4297e914032f" />
 
 Within the next Window scroll down until you find "Internet Information Services" andd enable it by checking the box.
@@ -175,7 +182,7 @@ Now rename the `Upload` folder to `osTicket`
 <img width="2360" height="1367" alt="rename file-anno" src="https://github.com/user-attachments/assets/7c468902-39d6-4518-b4bf-90a4a9fdabfb" />
 <img width="2351" height="1371" alt="file renamed-anno" src="https://github.com/user-attachments/assets/23d20620-adbf-4d7f-ba62-635397912a2c" />
 
-## Step 7: Setup osTicket in the WebUI
+## Step 7: Setup osTicket WebUI and HeidiSQL
 
 In the VMs web browser, enter `http://localhost/osTIcket/setup/` to the url field and you should be redirected to the osTicket setup page. This confirms that osTicket is installed and working.
 <img width="2514" height="1981" alt="osTicket page (after stop-starting IIS)" src="https://github.com/user-attachments/assets/69b1ea9e-44a7-4f7a-92eb-2376f93dcbf3" />
