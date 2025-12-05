@@ -232,6 +232,17 @@ Install HeidiSQL. Select install for all users (again this is dependent on your 
 Follow the prompts to install the software.
 <img width="1199" height="899" alt="Screenshot 2025-12-01 202912" src="https://github.com/user-attachments/assets/f1cbda35-1f4c-4d54-b2ba-fa88101bb330" />
 
+Within HeidiSQL. Select "New" and then fill out the security info for the mySQL database you created earlier. Then click "Open"
+<img width="1377" height="970" alt="fill heidi database settings-anno" src="https://github.com/user-attachments/assets/3819bd36-73b1-4388-94f4-357dc85ead01" />
+
+In the new menu, right click on the unamed session. Click "create-new" then "database"
+<img width="2183" height="1441" alt="create new database-anno" src="https://github.com/user-attachments/assets/ad5c300e-0c72-4f3c-9ff1-fc07b2b159fb" />
+
+Name the database `osTicket`, then click `Okay`
+<img width="646" height="523" alt="name the database" src="https://github.com/user-attachments/assets/4f3ede54-741c-4c37-8c82-7a6fe190718f" />
+
+Return to the osTicket form in the webUI. And fill the form with the relative information
+<img width="1625" height="841" alt="osTicket fill out database settings" src="https://github.com/user-attachments/assets/b63dc22a-a3ec-4c17-87c5-76c1c47b7802" />
 
 
 ## Step 8: Install HeidiSQL
