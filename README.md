@@ -80,10 +80,11 @@ Below is an image of the downloads folder containing all the (x64) dependencies 
 ## Step 3: Enable IIS with CGI
 Before installing the dependencies IIS for Windows needs to be enabled.
 
-Within the Remote VM, Press `Windows + R` then type `optionalfeatures`, ensure "run with adminstrator privleges" is depicted and hit `Enter` (Use `Ctrl + Shift + Enter` if not depicted)
+Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
+*Alternatively*, use Windows Start Menu by searching for `Turn Windows features on or off`, right-clicking and press "Run as Adminstrator"
 
-*Alternatively*, you can search for `Turn Windows features on or off` in the Windows start menu, right-click and press "Run as Adminstrator"
 <img width="771" height="484" alt="osTicket-WinR" src="https://github.com/user-attachments/assets/ec64a789-99a8-4076-9394-4297e914032f" />
+
 
 Within the next Window scroll down until you find "Internet Information Services" andd enable it by checking the box.
 <img width="908" height="794" alt="osTicket_IIS-on" src="https://github.com/user-attachments/assets/910da700-b45f-4f61-830f-f12bb23a53c5" />
