@@ -30,7 +30,7 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 5. [Register PHP within IIS](https://github.com/davidstavin/osticket-prereqs/tree/main#step-5-register-php-within-iis)
 6. [Install osTicket](https://github.com/davidstavin/osticket-prereqs/tree/main#step-6-install-osticket)
 7. [Setup osTicket in the WebUI](https://github.com/davidstavin/osticket-prereqs/tree/main#step-7-setup-osticket-in-the-webui)
-8. [Post-Install Cleanup](https://github.com/davidstavin/osticket-prereqs/tree/main#step-8-post-install-cleanup)  
+8. [Post-Install Cleanup](https://github.com/davidstavin/osticket-prereqs/tree/main#step-8-post-install-cleanup)
 
 ## Step 1: Create a Virtual Machine
 
@@ -252,5 +252,15 @@ the page will begin running the install
 After the install is complete, the page will redirect to this confirmation screen, and instructions to cleanup config settings
 <img width="2545" height="1660" alt="task to delete things" src="https://github.com/user-attachments/assets/f59cfb7e-e79f-480e-9293-8b52c6a439bd" />
 
+delete the setup folder...
+<img width="2792" height="1738" alt="delete the setup folder-anno" src="https://github.com/user-attachments/assets/0ae493a4-a976-4d1f-a06b-e87a0d7f618e" />
 
+find the ost-config file from earlier
+img...
+
+change permsissions...
+<img width="2219" height="1260" alt="new permissions-anno" src="https://github.com/user-attachments/assets/d87b9c89-beb2-4b64-86ed-68cf6e397e28" />
+
+Confirm the agent and end-user panels both work.
+<img width="2548" height="937" alt="osTicket install confirmed ticket-anno" src="https://github.com/user-attachments/assets/b14c4117-1cdb-4671-91c4-9c868d58ac48" />
 
