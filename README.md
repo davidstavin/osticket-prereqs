@@ -34,7 +34,7 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 
 ## Step 1: Create a Virtual Machine
 
-Start by creating a VM in MS Azure
+Start by creating a VM in MS Azure (NOTE UPDATE TO 4 vCPU image)
 <img width="7680" height="4141" alt="osTicket_vm-creation" src="https://github.com/user-attachments/assets/40d9e748-afe8-4023-8b80-d9b384fdbb2a" />
 
 Copy the Public IP of the VM
@@ -241,8 +241,16 @@ In the new menu, right click on the unamed session. Click "create-new" then "dat
 Name the database `osTicket`, then click `Okay`
 <img width="646" height="523" alt="name the database" src="https://github.com/user-attachments/assets/4f3ede54-741c-4c37-8c82-7a6fe190718f" />
 
-Return to the osTicket form in the webUI. And fill the form with the relative information
-<img width="1625" height="841" alt="osTicket fill out database settings" src="https://github.com/user-attachments/assets/b63dc22a-a3ec-4c17-87c5-76c1c47b7802" />
+Return to the osTicket form in the webUI. And fill in the database settings, with the info from heidisql and mysql, then click `Install Now`
+<img width="1625" height="841" alt="osTicket fill out database settings-anno" src="https://github.com/user-attachments/assets/ff0344b8-f4d7-4e4e-9d2e-b8badebbdc23" />
+
+the page will begin running the install
+<img width="1646" height="2328" alt="osTicket doing things" src="https://github.com/user-attachments/assets/80a72737-0e4f-4b74-bc92-dd1f25711924" />
+
+## Step 8: Post-Install Cleanup
+
+After the install is complete, the page will redirect to this confirmation screen, and instructions to cleanup config settings
+<img width="2545" height="1660" alt="task to delete things" src="https://github.com/user-attachments/assets/f59cfb7e-e79f-480e-9293-8b52c6a439bd" />
 
 
-## Step 8: Install HeidiSQL
+
