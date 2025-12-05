@@ -30,7 +30,7 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 5. [Register PHP within IIS](https://github.com/davidstavin/osticket-prereqs/tree/main#step-5-register-php-within-iis)
 6. [Install osTicket](https://github.com/davidstavin/osticket-prereqs/tree/main#step-6-install-osticket)
 7. [Setup osTicket in the WebUI](https://github.com/davidstavin/osticket-prereqs/tree/main#step-7-setup-osticket-in-the-webui)
-8. [Install HeidiSQL](https://github.com/davidstavin/osticket-prereqs/tree/main#step-8-install-heidisql)  
+8. [Post-Install Cleanup](https://github.com/davidstavin/osticket-prereqs/tree/main#step-8-post-install-cleanup)  
 
 ## Step 1: Create a Virtual Machine
 
