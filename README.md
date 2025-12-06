@@ -78,7 +78,7 @@ Below is an image of the downloads folder containing all the (x64) dependencies 
 <img width="2103" height="1193" alt="osTicket_downloads-fixed" src="https://github.com/user-attachments/assets/6a6a3aa0-c61e-427b-b4d3-1282708db900" />
 
 ## Step 3: Enable IIS with CGI
-Before installing the dependencies IIS for Windows needs to be enabled.
+Before proceeding with dependency installation, IIS fdr Windows needs to be enabled.
 
 Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
 *Alternatively*, use Windows Start Menu by searching for `Turn Windows features on or off`, right-clicking and press "Run as Adminstrator"
@@ -86,17 +86,13 @@ Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit 
 <img width="771" height="484" alt="osTicket-WinR" src="https://github.com/user-attachments/assets/ec64a789-99a8-4076-9394-4297e914032f" />
 
 
-Within the next Window scroll down until you find "Internet Information Services" andd enable it by checking the box.
+In the new "Windows Features" screen scroll down until you find "Internet Information Services" (IIS) and enable it by checking the box as depicted.
 <img width="908" height="794" alt="osTicket_IIS-on" src="https://github.com/user-attachments/assets/910da700-b45f-4f61-830f-f12bb23a53c5" />
 
-Next, we will enable CGI. Click the `+` symbol adjacent to the checkbox to expand the folder's options. In the same manner, expand World Wide Services, and then Application Development Features. Scroll down until you find CGI and enable it.
-<img width="899" height="780" alt="osTicket_CGI-on" src="https://github.com/user-attachments/assets/88e45827-9d48-4380-9312-7e806aef09a7" />\
+Next, to enable CGI. Click the `+` symbol adjacent the IIS checkbox, to expand its nested options. Then find and expand "World Wide Services", and then "Application Development Features". Scroll down until you find "CGI" and enable it.
+<img width="899" height="780" alt="osTicket_CGI-on-anno" src="https://github.com/user-attachments/assets/3fcba6bd-73ff-4aa0-8cfe-df461a86c032" />
 
-Once completed, Click `OK` and wait for the features to be applied.
-
-<img width="1227" height="989" alt="osTicket-applying-changes" src="https://github.com/user-attachments/assets/6aedd442-e781-4975-9af2-c48e65188a73" />
-
-Close the Window
+After clicking `OK`, wait for the features to be applied, then close the window
 <img width="1217" height="993" alt="osTicket-changes-applied" src="https://github.com/user-attachments/assets/d629a96f-c124-462b-9c57-20f510556b18" />
 
 ## Step 4: Install the Dependencies
