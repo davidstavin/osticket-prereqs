@@ -78,62 +78,62 @@ Below is an image of the downloads folder containing all the (x64) dependencies 
 <img width="2103" height="1193" alt="osTicket_downloads-fixed" src="https://github.com/user-attachments/assets/6a6a3aa0-c61e-427b-b4d3-1282708db900" />
 
 ## Step 3: Enable IIS with CGI
-Before proceeding with dependency installation, IIS fdr Windows needs to be enabled.
+Before proceeding with dependency installation, IIS for Windows needs to be enabled.
 
 Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
-*Alternatively*, use Windows Start Menu by searching for `Turn Windows features on or off`, right-clicking and press "Run as Adminstrator"
+*Alternatively*, use Windows Start Menu by searching for `Turn Windows features on or off`, right-clicking and press "Run as Adminstrator" 
 
-<img width="771" height="484" alt="osTicket-WinR" src="https://github.com/user-attachments/assets/ec64a789-99a8-4076-9394-4297e914032f" />
-
+<img width="771" height="484" alt="osTicket-WinR" src="https://github.com/user-attachments/assets/ec64a789-99a8-4076-9394-4297e914032f" /> &nbsp;
 
 In the new "Windows Features" screen scroll down until you find "Internet Information Services" (IIS) and enable it by checking the box as depicted.
-<img width="908" height="794" alt="osTicket_IIS-on" src="https://github.com/user-attachments/assets/910da700-b45f-4f61-830f-f12bb23a53c5" />
+
+<img width="908" height="794" alt="osTicket_IIS-on" src="https://github.com/user-attachments/assets/910da700-b45f-4f61-830f-f12bb23a53c5" /> &nbsp;
 
 Next, to enable CGI. Click the `+` symbol adjacent the IIS checkbox, to expand its nested options. Then find and expand "World Wide Services", and then "Application Development Features". Scroll down until you find "CGI" and enable it.
 <img width="899" height="780" alt="osTicket_CGI-on-anno" src="https://github.com/user-attachments/assets/3fcba6bd-73ff-4aa0-8cfe-df461a86c032" />
 
 After clicking `OK`, wait for the features to be applied, then close the window
-<img width="1217" height="993" alt="osTicket-changes-applied" src="https://github.com/user-attachments/assets/d629a96f-c124-462b-9c57-20f510556b18" />
+<img width="1217" height="457" alt="osTicket-changes-applied-cropped" src="https://github.com/user-attachments/assets/9dcbff20-2f55-4256-8f1d-ef2758204afb" />
+
 
 ## Step 4: Install the Dependencies
 
-### i. Install PHP Manager for IIS
+After enabling IIS with CGI, return to the folder containing the dependencies that were downloaded earlier.
 
-Return to the downloads folder. Open the installer for PHP Manager, as depicted and follow the prompts to install the package.
-<img width="2103" height="1193" alt="osTicket_downloads-fixed-PHPManager" src="https://github.com/user-attachments/assets/4cbdbe0a-1335-4cb2-8723-d41b64604a05" />
-<img width="1002" height="814" alt="osTicket-PHP-ManagerForIIS" src="https://github.com/user-attachments/assets/8bc2468c-cada-4326-a464-901c8e01142e" />
+### i. Install PHP Manager for IIS
+Open the installer for PHP manager and follow the prompts to install the package.
+<img width="2103" height="1185" alt="osTicket_install_phpmanager-anno_num" src="https://github.com/user-attachments/assets/bded7458-d777-41ab-8d23-fd3fa5fd1877" />
 
 ### ii. Install IIS URL Rewrite
 Install Rewrite
-<img width="2103" height="1193" alt="osTicket_downloads-fixed-Rewrite" src="https://github.com/user-attachments/assets/a7b4f375-9cd8-446e-8457-533a45949f55" />
-<img width="992" height="768" alt="osTicket-Rewrite" src="https://github.com/user-attachments/assets/4051d2b9-eb0c-429c-b515-6f2143c66345" />
+<img width="2103" height="1185" alt="osTicket_install_URL-Rewrite-anno_num" src="https://github.com/user-attachments/assets/bb1e62c7-f79b-45bc-802a-c1ac826b712a" />
 
 ### iii. Extract PHP files to C:\PHP
 Extract the `.zip` containing the PHP files, specifiying `C:\PHP` as the extract path
 <img width="2164" height="1528" alt="osTicket-ExtractPHP-annotated" src="https://github.com/user-attachments/assets/b2eef2fd-00a1-410f-92dd-fecfd95bb682" />
 
 Extracting the files this way, will automatically create a new folder at the destination path
-<img width="1146" height="942" alt="osTicket-PHPExtactDirectory" src="https://github.com/user-attachments/assets/4ad3f907-74cc-4234-ad93-c7af095701e8" />
+<img width="1144" height="665" alt="osTicket-PHPExtractDirectory-cropped_anno" src="https://github.com/user-attachments/assets/97893165-284d-4f83-a639-b628a73b4923" />
 
 ### iv. Install Microsoft Visual Studio C++ Redistributable
 Open vcRedist. Follow the prompts to install the package.
-<img width="941" height="589" alt="osTicket-vcRedist-Install" src="https://github.com/user-attachments/assets/654f555c-6010-451d-9d64-0a16640d29d7" />
+<img width="2103" height="1185" alt="osTicket_install_vcRedist-anno_num" src="https://github.com/user-attachments/assets/4f480ca6-59a3-4653-9cb8-88701e47c914" />
 
 ### v. Install MySQL
 after installing vcRedist, install the MySQL server
-<img width="993" height="771" alt="osTicket-mySQL-install" src="https://github.com/user-attachments/assets/047abb19-8c5d-4435-bd68-14ac1a757f45" />
+<img width="2103" height="1185" alt="osTicket_install_MySQL-anno_num" src="https://github.com/user-attachments/assets/ca47e2cd-cb12-4606-8d1c-0afd289d4603" />
 
 select 'typical'
-<img width="984" height="771" alt="osTicket-mySQL-Typical" src="https://github.com/user-attachments/assets/af7339e6-31ca-4063-9c41-0dca49ebb72d" />
+<img width="984" height="766" alt="osTicket-mySQL-Typical-anno" src="https://github.com/user-attachments/assets/17b708f5-09bf-4789-8a4d-0271222c6b4c" />
 
 open the launch configurator after installation
-<img width="993" height="773" alt="mySQL-Launch-configurator" src="https://github.com/user-attachments/assets/fc9a5c0c-ff08-43c8-b7fe-45d1526b7707" />
+<img width="986" height="766" alt="mySQL-Launch-configurator-anno" src="https://github.com/user-attachments/assets/db54be8a-0057-43e3-8692-031686904ed2" />
 
 within the configurator set your root password
-<img width="1570" height="1229" alt="mySQL-set root password" src="https://github.com/user-attachments/assets/9cd82fad-4cab-481f-bfa9-31b719d471a3" />
+<img width="1569" height="1226" alt="mySQL-set root password-anno" src="https://github.com/user-attachments/assets/7e49cd0a-7b29-404d-8557-6677ea20753e" />
 
 after selecting the options suited for your use case, click next and allow the progrom to apply its changes.
-<img width="1568" height="1229" alt="mySQL config complete" src="https://github.com/user-attachments/assets/e54b818b-b773-4346-81af-38886179efb0" />
+<img width="1566" height="1224" alt="mySQL config complete-anno" src="https://github.com/user-attachments/assets/79056087-ead1-4ebb-aa27-b2b2ed2bd531" />
 
 ## Step 5: Register PHP within IIS
 Now we are going to register the PHP directory within our IIS Manager
