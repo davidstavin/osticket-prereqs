@@ -75,22 +75,23 @@ _Note._ Windows 11 uses a x64 architecture, and is not compatabile with x86 (32-
 - FOSS administration tool for working on databases like MariaDB and MySQL. Provides a GUI and is extremely popular
 
 Below is an image of the downloads folder containing all the (x64) dependencies used in this tutorial.
-<img width="2103" height="1193" alt="osTicket_downloads-fixed" src="https://github.com/user-attachments/assets/6a6a3aa0-c61e-427b-b4d3-1282708db900" />
+<img width="2100" height="1187" alt="osTicket_downloads-fixed-template" src="https://github.com/user-attachments/assets/b8d1bc17-b572-4b11-8dbe-bb1546d62c3a" />
+
 
 ## Step 3: Enable IIS with CGI
 Before proceeding with dependency installation, IIS for Windows needs to be enabled.
 
 Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
-*Alternatively*, use Windows Start Menu by searching for `Turn Windows features on or off`, right-clicking and press "Run as Adminstrator" 
+*Alternatively*, use Windows Start Menu by searching for `Turn Windows features on or off`, right-clicking and press "Run as Adminstrator"
 
-<img width="771" height="484" alt="osTicket-WinR" src="https://github.com/user-attachments/assets/ec64a789-99a8-4076-9394-4297e914032f" /> &nbsp;
+<img width="764" height="476" alt="osTicket-WinR" src="https://github.com/user-attachments/assets/ed28c96c-d235-4281-a655-691c61eb5f60" /> &nbsp;
 
 In the new "Windows Features" screen scroll down until you find "Internet Information Services" (IIS) and enable it by checking the box as depicted.
 
-<img width="908" height="794" alt="osTicket_IIS-on" src="https://github.com/user-attachments/assets/910da700-b45f-4f61-830f-f12bb23a53c5" /> &nbsp;
+<img width="903" height="784" alt="osTicket_IIS-on-anno" src="https://github.com/user-attachments/assets/1339a204-d7ee-47a5-976f-f5c49f23b189" /> &nbsp;
 
 Next, to enable CGI. Click the `+` symbol adjacent the IIS checkbox, to expand its nested options. Then find and expand "World Wide Services", and then "Application Development Features". Scroll down until you find "CGI" and enable it.
-<img width="899" height="780" alt="osTicket_CGI-on-anno" src="https://github.com/user-attachments/assets/3fcba6bd-73ff-4aa0-8cfe-df461a86c032" />
+<img width="899" height="780" alt="osTicket_CGI-on-anno" src="https://github.com/user-attachments/assets/3fcba6bd-73ff-4aa0-8cfe-df461a86c032" /> &nbsp;
 
 After clicking `OK`, wait for the features to be applied, then close the window
 <img width="1217" height="457" alt="osTicket-changes-applied-cropped" src="https://github.com/user-attachments/assets/9dcbff20-2f55-4256-8f1d-ef2758204afb" />
@@ -102,11 +103,11 @@ After enabling IIS with CGI, return to the folder containing the dependencies th
 
 ### i. Install PHP Manager for IIS
 Open the installer for PHP manager and follow the prompts to install the package.
-<img width="2103" height="1185" alt="osTicket_install_phpmanager-anno_num" src="https://github.com/user-attachments/assets/bded7458-d777-41ab-8d23-fd3fa5fd1877" />
+<img width="2101" height="1185" alt="osTicket_install_phpmanager-anno_num" src="https://github.com/user-attachments/assets/0f6afff3-34eb-4c70-b616-7e87de5f5cbf" />
 
 ### ii. Install IIS URL Rewrite
 Install Rewrite
-<img width="2103" height="1185" alt="osTicket_install_URL-Rewrite-anno_num" src="https://github.com/user-attachments/assets/bb1e62c7-f79b-45bc-802a-c1ac826b712a" />
+<img width="2101" height="1185" alt="osTicket_install_URL-Rewrite-anno_num" src="https://github.com/user-attachments/assets/26c2ae08-5819-454b-a1e4-c4d33b8b5768" />
 
 ### iii. Extract PHP files to C:\PHP
 Extract the `.zip` containing the PHP files, specifiying `C:\PHP` as the extract path
@@ -117,11 +118,11 @@ Extracting the files this way, will automatically create a new folder at the des
 
 ### iv. Install Microsoft Visual Studio C++ Redistributable
 Open vcRedist. Follow the prompts to install the package.
-<img width="2103" height="1185" alt="osTicket_install_vcRedist-anno_num" src="https://github.com/user-attachments/assets/4f480ca6-59a3-4653-9cb8-88701e47c914" />
+<img width="2101" height="1185" alt="osTicket_install_vcRedist-anno_num" src="https://github.com/user-attachments/assets/240a22a1-e8bf-4ffc-a340-10739d1b877b" />
 
 ### v. Install MySQL
 after installing vcRedist, install the MySQL server
-<img width="2103" height="1185" alt="osTicket_install_MySQL-anno_num" src="https://github.com/user-attachments/assets/ca47e2cd-cb12-4606-8d1c-0afd289d4603" />
+<img width="2101" height="1185" alt="osTicket_install_MySQL-anno_num" src="https://github.com/user-attachments/assets/c611c031-2324-4791-b585-ccc54b4e070e" />
 
 select 'typical'
 <img width="984" height="766" alt="osTicket-mySQL-Typical-anno" src="https://github.com/user-attachments/assets/17b708f5-09bf-4789-8a4d-0271222c6b4c" />
@@ -139,28 +140,28 @@ after selecting the options suited for your use case, click next and allow the p
 Now we are going to register the PHP directory within our IIS Manager
 
 Press `Windows + R`, type `inetmgr` and hit enter
-<img width="768" height="479" alt="Win+R IIS-Manager" src="https://github.com/user-attachments/assets/d7950929-77df-4b6b-854b-2e25e2614ce3" />
+<img width="764" height="475" alt="Win+R IIS-Manager" src="https://github.com/user-attachments/assets/aad9e055-29b1-41a0-ac3b-60fe5ca36310" />
 
 within the new window, open PHP Manager
-<img width="2614" height="1649" alt="iismanager-opened-annotated" src="https://github.com/user-attachments/assets/cfbdc66a-5f73-4858-8974-647b947bf05e" />
+<img width="2604" height="1631" alt="iismanager-opened-annotated" src="https://github.com/user-attachments/assets/40aa95eb-00b1-4162-b767-4e6caea48e9c" />
 
 Click "Register New PHP Version"
-<img width="2619" height="1647" alt="register-new-php version-anno" src="https://github.com/user-attachments/assets/793f4316-6855-4773-92e4-93f1c579c64b" />
+<img width="2604" height="1632" alt="register-new-php version-anno" src="https://github.com/user-attachments/assets/09293c77-8cd2-44d4-964c-67ad294e2edc" />
 
 Type `C:\PHP\php-cgi.exe` or navigate to it manually by clicking browse
 <img width="1023" height="446" alt="phpversiondirectory" src="https://github.com/user-attachments/assets/0d69a1f0-f495-4ecd-9a40-b730d7162683" />
 
 (The exe file depicted through 'browse')
-<img width="2365" height="1424" alt="phpversionnav" src="https://github.com/user-attachments/assets/622b3685-47af-4e6e-9018-1d81320a5764" />
+<img width="2365" height="1419" alt="phpversionnav" src="https://github.com/user-attachments/assets/e14cffc4-2d61-4f65-aece-d8419cdbec57" />
 
 Click OK, and you will be returned to the PHP Manager which should have the options "change php version" now interactable
-<img width="2614" height="1644" alt="php-registered" src="https://github.com/user-attachments/assets/eaa28ce8-dcc2-445a-900b-407be7a7e3c4" />
+<img width="2604" height="1632" alt="php-registered" src="https://github.com/user-attachments/assets/60bee006-523e-4624-8c27-0443fe140986" />
 
 Next to apply these changes, hit STOP on the action side panel.
-<img width="2611" height="1644" alt="click-stop-anno" src="https://github.com/user-attachments/assets/a79a40df-0a35-4910-9469-8a0d7d4d8247" />
+<img width="2604" height="1632" alt="click-stop-anno" src="https://github.com/user-attachments/assets/6319fab8-84ae-4101-b71f-a9368e414213" />
 
 Followed by START, once complete.
-<img width="2615" height="1718" alt="click-start-anno" src="https://github.com/user-attachments/assets/f8a19bf3-8747-4fdc-aa97-f5271b5f0e67" />
+<img width="2604" height="1704" alt="click-start-anno" src="https://github.com/user-attachments/assets/16276c35-05de-48ac-9c9e-465ded9340cc" />
 
 ## Step 6: Install osTicket
 
