@@ -1,4 +1,4 @@
-<p align="center">
+zz<p align="center">
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
@@ -183,23 +183,22 @@ Now rename the `Upload` folder to `osTicket`
 ## Step 7: Setup osTicket WebUI and HeidiSQL
 
 In the VMs web browser, enter `http://localhost/osTIcket/setup/` to the url field and you should be redirected to the osTicket setup page. This confirms that osTicket is installed and working.
-<img width="2514" height="1981" alt="osTicket page (after stop-starting IIS)" src="https://github.com/user-attachments/assets/69b1ea9e-44a7-4f7a-92eb-2376f93dcbf3" />
+<img width="2506" height="1972" alt="osTicket page (after stop-starting IIS)" src="https://github.com/user-attachments/assets/a05c99f8-ebcf-4c4c-b311-5e2f5773f67a" />
 
-Enable the extensions, by opening IIS manager, from Step 3
-
+Enable the extensions, by opening IIS manager, from Step 3. &nbsp;
 Within PHP Manager click "enable or disable extensions"
-<img width="2617" height="1713" alt="php-manager-extensions-anno" src="https://github.com/user-attachments/assets/17422319-43e4-4496-8199-fab69c428f04" />
+<img width="2604" height="1703" alt="php-manager-extensions-anno" src="https://github.com/user-attachments/assets/77c7fae6-4658-4103-a6b2-33557f4da4fb" />
 
 Find and select an extension called `php_intl.dll`, and enable it using the action menu in the upper right.
 
 _Note_. As of PHP 8.4 the imap extension is deprecated and no longer required to run osTicket (As referenced [here](https://www.php.net/manual/en/imap.installation.php) and [here)](https://forum.osticket.com/d/106559-php-84-drops-built-in-php-imap-support)
-<img width="2611" height="1711" alt="phpmanager - enable phpintl-anno" src="https://github.com/user-attachments/assets/8ca739e3-3aa1-4325-939e-11c71adda50a" />
+<img width="2604" height="1705" alt="phpmanager - enable phpintl-anno" src="https://github.com/user-attachments/assets/442a584d-b5e9-4526-a779-af658b0de3ed" />
 
 refreshing the osTicket website should now redirect you to the "missing config file" screen
-<img width="2500" height="1805" alt="missing config" src="https://github.com/user-attachments/assets/20b5797c-846c-4a3c-9eda-5e7c749df189" />
+<img width="2494" height="1795" alt="missing config" src="https://github.com/user-attachments/assets/5a685436-cd98-4d3a-b49e-ea3c7699a539" />
 
 To fix this navigate to `C:\inetpub\wwwroot\osTicket\include` and rename a file called `ost-sampleconfig.php` to `ost-config.php`
-<img width="2484" height="1791" alt="rename ost-sample-config-anno" src="https://github.com/user-attachments/assets/2192148c-44b5-4782-bac8-eeb79e21ba0e" />
+<img width="2477" height="1784" alt="rename ost-sample-config-anno" src="https://github.com/user-attachments/assets/7be3039a-f236-412a-85b8-22eb7eca06d6" />
 As depicted here
 <img width="1357" height="51" alt="ost-configphp renamed" src="https://github.com/user-attachments/assets/9632244c-b9ef-4aa2-9a22-1e8285891195" />
 
@@ -207,41 +206,42 @@ Next open the config file's properties `Alt + Enter` or by using the GUI
 <img width="1706" height="1003" alt="open properites-anno" src="https://github.com/user-attachments/assets/e2c1869d-9729-4cf3-bef6-72e2114d78db" />
 
 Open "Security" 
-<img width="818" height="994" alt="open security and advanced-anno" src="https://github.com/user-attachments/assets/97d8c888-6673-4960-91de-2a61cf037fd8" />
+
+<img width="809" height="977" alt="open security and advanced-anno" src="https://github.com/user-attachments/assets/bc75e646-9668-4fe0-93d0-18af2574d2f9" />
 
 disable inheritance + all
-<img width="1536" height="1004" alt="disable all inherited permissions-anno" src="https://github.com/user-attachments/assets/e4ab2ed3-a5f0-4abf-8482-98ce2fe5c5d0" />
+<img width="1530" height="997" alt="disable all inherited permissions-anno" src="https://github.com/user-attachments/assets/d7f9f00e-f01e-486b-aee9-cd45b14843f8" />
 
 add new permssion
-<img width="2493" height="1158" alt="add permission and select principal-anno" src="https://github.com/user-attachments/assets/50081a8a-964b-4701-ad1e-6c51d8c3d219" />
+<img width="2485" height="1147" alt="add permission and select principal-anno-back" src="https://github.com/user-attachments/assets/687ea54e-ade6-4111-85e4-0d4d875d0f24" />
 
 Type `Everyone` select "check Names" to fix any syntax errors, and press `Okay`
 _Note_. For this tutorial 'Everyone' will have adminsistrator privileges. This is unwise for production environments, andd the actual permissions will be dependent on your use case
-<img width="2487" height="1153" alt="everyone, check names, okay-anno" src="https://github.com/user-attachments/assets/32c05f1a-a526-41f4-854b-02ff95ad1e26" />
+<img width="2484" height="1147" alt="everyone, check names, okay-anno-back" src="https://github.com/user-attachments/assets/a0447ce0-0a9f-449d-966a-64220bc718bc" />
 
 enable full control, modify, and write. Then press okay
-<img width="2493" height="1158" alt="enable fc, mod, wr-anno" src="https://github.com/user-attachments/assets/01ec9a0e-312d-43f8-9adf-d8a5f6d74a83" />
+<img width="2485" height="1147" alt="enable fc, mod, wr-anno-back" src="https://github.com/user-attachments/assets/067185fc-11ca-4904-a8cd-ee99755f327c" />
 
 On the next screen press `Apply` then `Okay`
-<img width="1535" height="1003" alt="apply and okay-anno" src="https://github.com/user-attachments/assets/6ceca7d6-1fb1-4adb-aceb-c2f03e7f8be9" />
+<img width="1529" height="996" alt="apply and okay-anno" src="https://github.com/user-attachments/assets/cafd29e1-1a07-4a9b-b748-f3c69a138e12" />
 
 The osticket page should now look like this upon refreshing
-<img width="2507" height="1802" alt="new osTicket page" src="https://github.com/user-attachments/assets/99db8e53-1bd1-4e39-b883-beb3931c875c" />
+<img width="2502" height="1795" alt="new osTicket page" src="https://github.com/user-attachments/assets/4fae2405-8c0f-460e-9309-0a0fb380fd5a" />
 
 Fill out most of the form but do not install, leave the database settings blank for now, those will be filled after the next step
-<img width="2554" height="2559" alt="form" src="https://github.com/user-attachments/assets/65766943-3289-47c8-83a5-a84670a816d3" />
+<img width="2548" height="2549" alt="form" src="https://github.com/user-attachments/assets/77a91d44-3c76-489e-a5c3-a19d9b828188" />
 
 Install HeidiSQL. Select install for all users (again this is dependent on your use case, but generally this setting is unwise for production)
 <img width="2485" height="1504" alt="install heidi-anno" src="https://github.com/user-attachments/assets/81dc6dc6-4b53-48e2-94b2-73a9012dc1dc" />
 
 Follow the prompts to install the software.
-<img width="1199" height="899" alt="Screenshot 2025-12-01 202912" src="https://github.com/user-attachments/assets/f1cbda35-1f4c-4d54-b2ba-fa88101bb330" />
+<img width="1193" height="886" alt="accept heidi" src="https://github.com/user-attachments/assets/cb7fb8d1-c76b-4dc1-9e6b-1cda845ba246" />
 
 Within HeidiSQL. Select "New" and then fill out the security info for the mySQL database you created earlier. Then click "Open"
-<img width="1377" height="970" alt="fill heidi database settings-anno" src="https://github.com/user-attachments/assets/3819bd36-73b1-4388-94f4-357dc85ead01" />
+<img width="1372" height="965" alt="fill heidi database settings-anno" src="https://github.com/user-attachments/assets/f94bbf03-79c8-4088-82f3-98e15b8144c2" />
 
 In the new menu, right click on the unamed session. Click "create-new" then "database"
-<img width="2183" height="1441" alt="create new database-anno" src="https://github.com/user-attachments/assets/ad5c300e-0c72-4f3c-9ff1-fc07b2b159fb" />
+<img width="2176" height="1436" alt="create new database-anno" src="https://github.com/user-attachments/assets/86510c86-c9d8-4ca0-a26c-186e05ae344e" />zzz
 
 Name the database `osTicket`, then click `Okay`
 <img width="646" height="523" alt="name the database" src="https://github.com/user-attachments/assets/4f3ede54-741c-4c37-8c82-7a6fe190718f" />
