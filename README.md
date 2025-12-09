@@ -79,7 +79,7 @@ Below is an image of the downloads folder containing all the (x64) dependencies 
 
 
 ## Step 3: Enable IIS with CGI
-Before proceeding with dependency installation, IIS for Windows needs to be enabled.
+Before proceeding with dependency installation, IIS for Windows needs to be enabled. This will allow us to run osTicket as a Webserver.
 
 Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
 *Alternatively*, use Windows Start Menu by searching for `Turn Windows features on or off`, right-clicking and press "Run as Adminstrator"
@@ -99,41 +99,43 @@ After clicking `OK`, wait for the features to be applied, then close the window
 
 ## Step 4: Install the Dependencies
 
-After enabling IIS with CGI, return to the folder containing the dependencies that were downloaded earlier.
+After enabling the IIS Webserver and CGI via Windows Features, return to the downloads folder containing the dependencies obtained during Step 2
 
 ### i. Install PHP Manager for IIS
-Open the installer for PHP manager and follow the prompts to install the package.
+Open the installer for PHP Manager `PHPManagerforIIS_V1.5.0.msi` and follow the prompts to install the program.
 <img width="2101" height="1185" alt="osTicket_install_phpmanager-anno_num" src="https://github.com/user-attachments/assets/0f6afff3-34eb-4c70-b616-7e87de5f5cbf" />
 
 ### ii. Install IIS URL Rewrite
-Install Rewrite
+Next Install IIS URL Rewrite `rewrite_amd64_en-US.msi`, accept the license agreement and follow the installation prompts once again.
 <img width="2101" height="1185" alt="osTicket_install_URL-Rewrite-anno_num" src="https://github.com/user-attachments/assets/26c2ae08-5819-454b-a1e4-c4d33b8b5768" />
 
 ### iii. Extract PHP files to C:\PHP
-Extract the `.zip` containing the PHP files, specifiying `C:\PHP` as the extract path
+For the next set of dependencies PHP will need to be installed.
+Right-click and select `Extract All...` on the compressed PHP folder `php-8.5.0-nts-Win32-vs17-x64.zip`, 
 <img width="2164" height="1528" alt="osTicket-ExtractPHP-annotated" src="https://github.com/user-attachments/assets/b2eef2fd-00a1-410f-92dd-fecfd95bb682" />
 
-Extracting the files this way, will automatically create a new folder at the destination path
+Specify `C:\PHP` as the extract path, to automatically create a new folder containing the extracted files. Then click "Extract"
 <img width="1144" height="665" alt="osTicket-PHPExtractDirectory-cropped_anno" src="https://github.com/user-attachments/assets/97893165-284d-4f83-a639-b628a73b4923" />
 
 ### iv. Install Microsoft Visual Studio C++ Redistributable
-Open vcRedist. Follow the prompts to install the package.
+After extracting PHP as described, return to the remaining dependencies. Find and install the Visual Studio C++ Redistributable `VC_redist.x64.exe`, Accept the Terms and Conditions, and follow the prompts to install the package.
 <img width="2101" height="1185" alt="osTicket_install_vcRedist-anno_num" src="https://github.com/user-attachments/assets/240a22a1-e8bf-4ffc-a340-10739d1b877b" />
 
 ### v. Install MySQL
+Next MySQL Server will need to be installed. Open `mysql-9.5.0-winx64.msi`, select "Next" and follow the prompts once again.
 after installing vcRedist, install the MySQL server
 <img width="2101" height="1185" alt="osTicket_install_MySQL-anno_num" src="https://github.com/user-attachments/assets/c611c031-2324-4791-b585-ccc54b4e070e" />
 
-select 'typical'
+When prompted to choose an installation setup type, choose "Typical" and select next.
 <img width="984" height="766" alt="osTicket-mySQL-Typical-anno" src="https://github.com/user-attachments/assets/17b708f5-09bf-4789-8a4d-0271222c6b4c" />
 
-open the launch configurator after installation
+Once installed, enable the option to Run the MySQL Configurator, as depicted and click finish.
 <img width="986" height="766" alt="mySQL-Launch-configurator-anno" src="https://github.com/user-attachments/assets/db54be8a-0057-43e3-8692-031686904ed2" />
 
-within the configurator set your root password
+Within the configurator keep all the default options (or modify them according to your use case), and set a strong root password for the MySQL Database
 <img width="1569" height="1226" alt="mySQL-set root password-anno" src="https://github.com/user-attachments/assets/7e49cd0a-7b29-404d-8557-6677ea20753e" />
 
-after selecting the options suited for your use case, click next and allow the progrom to apply its changes.
+After proceeding through all the configurator options, review and apply the configurations. Once applied successfully, click next to close the configurator.
 <img width="1566" height="1224" alt="mySQL config complete-anno" src="https://github.com/user-attachments/assets/79056087-ead1-4ebb-aa27-b2b2ed2bd531" />
 
 ## Step 5: Register PHP within IIS
