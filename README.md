@@ -138,6 +138,8 @@ Within the configurator keep all the default options (or modify them according t
 After proceeding through all the configurator options, review and apply the configurations. Once applied successfully, click next to close the configurator.
 <img width="1566" height="1224" alt="mySQL config complete-anno" src="https://github.com/user-attachments/assets/79056087-ead1-4ebb-aa27-b2b2ed2bd531" />
 
+At this point you may have noticed that HeidiSQL has not been installed. This is fine, you will be directed to install it near the end of this tutorial.
+
 ## Step 5: Register PHP within IIS
 Now we are going to register the PHP directory within our IIS Manager
 
