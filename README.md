@@ -143,7 +143,7 @@ Press `Windows + R`, type `inetmgr` and hit enter
 <img width="764" height="475" alt="Win+R IIS-Manager" src="https://github.com/user-attachments/assets/aad9e055-29b1-41a0-ac3b-60fe5ca36310" />
 
 within the new window, open PHP Manager
-<img width="2604" height="1631" alt="iismanager-opened-annotated" src="https://github.com/user-attachments/assets/40aa95eb-00b1-4162-b767-4e6caea48e9c" />
+<img width="2604" height="1125" alt="iismanager-opened-annotated" src="https://github.com/user-attachments/assets/b20a1f99-73e0-4c5c-8244-e898d3cdca6c" />
 
 Click "Register New PHP Version"
 <img width="2604" height="1632" alt="register-new-php version-anno" src="https://github.com/user-attachments/assets/09293c77-8cd2-44d4-964c-67ad294e2edc" />
@@ -158,10 +158,10 @@ Click OK, and you will be returned to the PHP Manager which should have the opti
 <img width="2604" height="1632" alt="php-registered" src="https://github.com/user-attachments/assets/60bee006-523e-4624-8c27-0443fe140986" />
 
 Next to apply these changes, hit STOP on the action side panel.
-<img width="2604" height="1632" alt="click-stop-anno" src="https://github.com/user-attachments/assets/6319fab8-84ae-4101-b71f-a9368e414213" />
+<img width="2604" height="1101" alt="click-stop-anno" src="https://github.com/user-attachments/assets/d194353d-197d-4540-b475-75a4b7b1fda3" />
 
 Followed by START, once complete.
-<img width="2604" height="1704" alt="click-start-anno" src="https://github.com/user-attachments/assets/16276c35-05de-48ac-9c9e-465ded9340cc" />
+<img width="2604" height="1124" alt="click-start-anno" src="https://github.com/user-attachments/assets/37a4c284-ab57-49b2-8e3d-26d89bc8f7c1" />
 
 ## Step 6: Install osTicket
 
