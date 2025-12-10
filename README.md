@@ -82,7 +82,7 @@ Below is an image of the downloads folder containing all the (x64) dependencies 
 Before proceeding with dependency installation, IIS for Windows needs to be enabled. This will allow us to run osTicket as a Webserver.
 
 Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
-*Alternatively*, use Windows Start Menu by searching for `Turn Windows features on or off`, right-clicking and press "Run as Adminstrator"
+*Alternatively*, use the Windows Start Menu, search for `Turn Windows features on or off`, right-click and press "Run as Adminstrator"
 
 <img width="764" height="476" alt="osTicket-WinR" src="https://github.com/user-attachments/assets/ed28c96c-d235-4281-a655-691c61eb5f60" /> &nbsp;
 
@@ -141,27 +141,30 @@ After proceeding through all the configurator options, review and apply the conf
 At this point you may have noticed that HeidiSQL has not been installed. This is fine, you will be directed to install it near the end of this tutorial.
 
 ## Step 5: Register PHP within IIS
-Now we are going to register the PHP directory within our IIS Manager
+In order to proceed any further, the PHP installation that was extracted earlier—into `C:\PHP`—will need to be registered within IIS Manager. This will inform the webserver that PHP is installed and ready to run PHP-based programs (i.e., osTicket). 
+Specifically, the file for registration is `PHP-cgi.exe`, an executable responsible for processing PHP scripts. Without this executable, the osTicket would fail to run on the IIS Server.
 
-Press `Windows + R`, type `inetmgr` and hit enter
+To register PHP, begin by pressing `Windows + R`, type `inetmgr` and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
+*Alternatively*, use the Windows Start Menu to search for `IIS`, right-clicking and press "Run as Adminstrator"
+
 <img width="764" height="475" alt="Win+R IIS-Manager" src="https://github.com/user-attachments/assets/aad9e055-29b1-41a0-ac3b-60fe5ca36310" />
 
-within the new window, open PHP Manager
+Inside the now opened IIS Manager, find the widget for PHP Manager as depicted, and double-click to enter it's confiugration menu.
 <img width="2604" height="1125" alt="iismanager-opened-annotated" src="https://github.com/user-attachments/assets/b20a1f99-73e0-4c5c-8244-e898d3cdca6c" />
 
-Click "Register New PHP Version"
+Now, click "Register New PHP Version"
 <img width="2604" height="1632" alt="register-new-php version-anno" src="https://github.com/user-attachments/assets/09293c77-8cd2-44d4-964c-67ad294e2edc" />
 
-Type `C:\PHP\php-cgi.exe` or navigate to it manually by clicking browse
+Type `C:\PHP\php-cgi.exe` or navigate to it manually by clicking `...` on the right-most side to browse to the executable using the GUI (See the next image).
 <img width="1023" height="446" alt="phpversiondirectory" src="https://github.com/user-attachments/assets/0d69a1f0-f495-4ecd-9a40-b730d7162683" />
 
 (The exe file depicted through 'browse')
 <img width="2365" height="1419" alt="phpversionnav" src="https://github.com/user-attachments/assets/e14cffc4-2d61-4f65-aece-d8419cdbec57" />
 
-Click OK, and you will be returned to the PHP Manager which should have the options "change php version" now interactable
+After providing the executable's file path (or by using browse), click OK, and you will be returned to the PHP Manager which will no longer display the warning banner "PHP is not enabled"
 <img width="2604" height="1632" alt="php-registered" src="https://github.com/user-attachments/assets/60bee006-523e-4624-8c27-0443fe140986" />
 
-Next to apply these changes, hit STOP on the action side panel.
+Next, to apply these changes return to the IIS Manager's dashboard by clicking the remote VMs name under the connections panel, andd then hit STOP ont he action side panel.
 <img width="2604" height="1101" alt="click-stop-anno" src="https://github.com/user-attachments/assets/d194353d-197d-4540-b475-75a4b7b1fda3" />
 
 Followed by START, once complete.
