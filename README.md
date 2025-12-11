@@ -142,7 +142,7 @@ At this point you may have noticed that HeidiSQL has not been installed. This is
 
 ## Step 5: Register PHP within IIS
 In order to proceed any further, the PHP installation that was extracted earlier—into `C:\PHP`—will need to be registered within IIS Manager. This will inform the webserver that PHP is installed and ready to run PHP-based programs (i.e., osTicket). 
-Specifically, the file for registration is `PHP-cgi.exe`, an executable responsible for processing PHP scripts. Without this executable, the osTicket would fail to run on the IIS Server.
+Specifically, the file for registration is `PHP-cgi.exe`, an executable responsible for processing PHP scripts. Without this executable, osTicket would fail to run on the IIS Server.
 
 To register PHP, begin by pressing `Windows + R`, type `inetmgr` and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
 *Alternatively*, use the Windows Start Menu to search for `IIS`, right-clicking and press "Run as Adminstrator"
@@ -155,35 +155,37 @@ Inside the now opened IIS Manager, find the widget for PHP Manager as depicted, 
 Now, click "Register New PHP Version"
 <img width="2604" height="1632" alt="register-new-php version-anno" src="https://github.com/user-attachments/assets/09293c77-8cd2-44d4-964c-67ad294e2edc" />
 
-Type `C:\PHP\php-cgi.exe` or navigate to it manually by clicking `...` on the right-most side to browse to the executable using the GUI (See the next image).
+Type `C:\PHP\php-cgi.exe` as the file path, and press okay.
+_Alternatively_, navigate to it manually by clicking `...` on the right-most side to browse to the executable using the GUI (See the next image).
 <img width="1023" height="446" alt="phpversiondirectory" src="https://github.com/user-attachments/assets/0d69a1f0-f495-4ecd-9a40-b730d7162683" />
 
 (The exe file depicted through 'browse')
 <img width="2365" height="1419" alt="phpversionnav" src="https://github.com/user-attachments/assets/e14cffc4-2d61-4f65-aece-d8419cdbec57" />
 
-After providing the executable's file path (or by using browse), click OK, and you will be returned to the PHP Manager which will no longer display the warning banner "PHP is not enabled"
+After providing the executable's file path click OK, and you will be returned to the PHP Manager which will no longer display the warning banner "PHP is not enabled", and the options for "Change PHP version" and "Check phpinfo" will be interactable.
 <img width="2604" height="1632" alt="php-registered" src="https://github.com/user-attachments/assets/60bee006-523e-4624-8c27-0443fe140986" />
 
-Next, to apply these changes return to the IIS Manager's dashboard by clicking the remote VMs name under the connections panel, andd then hit STOP ont he action side panel.
-<img width="2604" height="1101" alt="click-stop-anno" src="https://github.com/user-attachments/assets/d194353d-197d-4540-b475-75a4b7b1fda3" />
+Next, to apply these changes, the webserver will need to be restarted. Return to the IIS Manager's dashboard by clicking the remote VM's name (in this case "osTicket-VM) under the connections panel, and then hit STOP on the action side panel.
+<img width="2604" height="1101" alt="click-stop-anno" src="https://github.com/user-attachments/assets/ff153f88-ec56-4da1-830d-f71d72733d4c" />
 
-Followed by START, once complete.
+Stopping the server may take a few seconds, but once completed, hit the START button, to relaunch the IIS webserver.
 <img width="2604" height="1124" alt="click-start-anno" src="https://github.com/user-attachments/assets/37a4c284-ab57-49b2-8e3d-26d89bc8f7c1" />
 
 ## Step 6: Install osTicket
 
-To install osTicket extract the .zip containing the files.
+After registering PHP and restarting the webserver, the osTicket files downloaded earlier need to be unpacked and "uploaded" (i.e., installed) to the server.
 
-Once extracted, move the `Upload` folder by cutting it `CTRL + X` or using the GUI
+To install osTicket, begin by extracting the `.zip` containing the files, as described earlier. This time, however, the files can just be extracted to the same downloads folder as the other dependencies.
+Once extracted, enter the osTicket directory and move the `Upload` folder by cutting it `CTRL + X` or using the GUI
 <img width="2361" height="1380" alt="cut-upload-anno" src="https://github.com/user-attachments/assets/7906f96d-cfa6-469e-8f02-20ff84ce1aca" />
 
-Navigate to your C:/ drive, and open the `inetpub` folder
+Next, navigate to your C:\ drive, and open the `inetpub` folder
 <img width="2349" height="1375" alt="c-driectory-anno" src="https://github.com/user-attachments/assets/c3e56543-3013-4ddf-93cc-9077382b13a4" />
 
-Open the `wwwroot` folder and paste the `Upload` folder `CTRL + V` or using the GUI
+Then, open the `wwwroot` folder and paste the `Upload` folder `CTRL + V` or using the GUI.
 <img width="2360" height="1373" alt="paste-osticket-anno" src="https://github.com/user-attachments/assets/50a127e7-3992-4cb6-a479-ebb355a76579" />
 
-Now rename the `Upload` folder to `osTicket`
+Now rename the `Upload` folder to `osTicket`. Although, technically only a folder was moved into another directory on the same drive, this has effectively "uploaded" the osTicket setup files into the IIS webserver.
 <img width="2360" height="1367" alt="rename file-anno" src="https://github.com/user-attachments/assets/7c468902-39d6-4518-b4bf-90a4a9fdabfb" />
 <img width="2351" height="1371" alt="file renamed-anno" src="https://github.com/user-attachments/assets/23d20620-adbf-4d7f-ba62-635397912a2c" />
 
