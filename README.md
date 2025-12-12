@@ -208,7 +208,7 @@ Now rename the `Upload` folder to `osTicket`. Although, technically only a folde
 
 With the dependencies now fully installed, and the osTicket files uploaded to the server, the next step is to configure the web interface and assign the database that osTicket will use. This will require configuring permissions, extensions and deploying the MySQL database.
 
-First, verify that osticket is working. Within the VM, open a web browser and enter `http://localhost/osTIcket/setup/` to the URL field. If working, you should be redirected to the setup page for osTicket (as seen below).
+First, verify that osticket is working. Within the VM, open a web browser and enter `http://localhost/osTicket/setup/` to the URL field. If working, you should be redirected to the setup page for osTicket (as seen below).
 <img width="2506" height="1972" alt="osTicket page (after stop-starting IIS)" src="https://github.com/user-attachments/assets/a05c99f8-ebcf-4c4c-b311-5e2f5773f67a" />
 
 Next, return to the PHP Manager within the Windows IIS Manager (as described in Step 3). &nbsp;
@@ -271,9 +271,10 @@ Within HeidiSQL. Select "New" and then fill out the security info for the mySQL 
 <img width="1372" height="965" alt="fill heidi database settings-anno" src="https://github.com/user-attachments/assets/f94bbf03-79c8-4088-82f3-98e15b8144c2" />
 
 In the new menu, right click on the unamed session. Click "create-new" then "database"
-<img width="2176" height="1436" alt="create new database-anno" src="https://github.com/user-attachments/assets/86510c86-c9d8-4ca0-a26c-186e05ae344e" />zzz
+<img width="2176" height="1436" alt="create new database-anno" src="https://github.com/user-attachments/assets/86510c86-c9d8-4ca0-a26c-186e05ae344e" />
 
-Name the database `osTicket`, then click `Okay`
+Name the database `osTicket`, then click `Okay`.
+
 <img width="646" height="523" alt="name the database" src="https://github.com/user-attachments/assets/4f3ede54-741c-4c37-8c82-7a6fe190718f" />
 
 Return to the osTicket form in the webUI. And fill in the database settings, with the info from heidisql and mysql, then click `Install Now`
