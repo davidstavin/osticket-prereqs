@@ -30,7 +30,9 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 7. [Setup osTicket WebUI and HeidiSQL](https://github.com/davidstavin/osticket-prereqs/tree/main#step-7-setup-osticket-webui-and-heidisql)
 8. [Post-Install Cleanup](https://github.com/davidstavin/osticket-prereqs/tree/main#step-8-post-install-cleanup)
 
+
 ## Step 1: Create a Virtual Machine
+
 
 Start by creating a VM in MS Azure with at least 4 vCPUs. Below is the summary of the VM used in this tutorial. (NOTE UPDATE TO 4 vCPU image)
 <img width="7680" height="4141" alt="osTicket_vm-creation" src="https://github.com/user-attachments/assets/40d9e748-afe8-4023-8b80-d9b384fdbb2a" />
@@ -45,7 +47,10 @@ Then sign into the VM using the security credentials assigned during its creatio
 
 img...
 
+
 ## Step 2: Download osTicket Files & Dependencies
+
+
 After completing step 1, and signing into the VM using Remote Desktop, proceed with downloading the neccessary dependencies for osTicket
 The following urls are the dependencies, listed in the order we will be installing them. Please download them to the remote computer.
 
@@ -79,6 +84,8 @@ Below is an image of the downloads folder containing all the (x64) dependencies 
 
 
 ## Step 3: Enable IIS with CGI
+
+
 Before proceeding with dependency installation, IIS for Windows needs to be enabled. This will allow us to run osTicket as a Webserver.
 
 Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
@@ -98,6 +105,7 @@ After clicking `OK`, wait for the features to be applied, then close the window
 
 
 ## Step 4: Install the Dependencies
+
 
 After enabling the IIS Webserver and CGI via Windows Features, return to the downloads folder containing the dependencies obtained during Step 2
 
@@ -140,7 +148,10 @@ After proceeding through all the configurator options, review and apply the conf
 
 At this point you may have noticed that HeidiSQL has not been installed. This is fine, you will be directed to install it near the end of this tutorial.
 
+
 ## Step 5: Register PHP within IIS
+
+
 In order to proceed any further, the PHP installation that was extracted earlier—into `C:\PHP`—will need to be registered within IIS Manager. This will inform the webserver that PHP is installed and ready to run PHP-based programs (i.e., osTicket). 
 Specifically, the file for registration is `PHP-cgi.exe`, an executable responsible for processing PHP scripts. Without this executable, osTicket would fail to run on the IIS Server.
 
@@ -171,7 +182,9 @@ Next, to apply these changes, the webserver will need to be restarted. Return to
 Stopping the server may take a few seconds, but once completed, hit the START button, to relaunch the IIS webserver.
 <img width="2604" height="1124" alt="click-start-anno" src="https://github.com/user-attachments/assets/37a4c284-ab57-49b2-8e3d-26d89bc8f7c1" />
 
+
 ## Step 6: Install osTicket
+
 
 After registering PHP and restarting the webserver, the osTicket files downloaded from earlier need to be unpacked and "uploaded" (i.e., installed) to the server.
 
@@ -189,56 +202,60 @@ Now rename the `Upload` folder to `osTicket`. Although, technically only a folde
 <img width="2360" height="1367" alt="rename file-anno" src="https://github.com/user-attachments/assets/7c468902-39d6-4518-b4bf-90a4a9fdabfb" />
 <img width="2351" height="1371" alt="file renamed-anno" src="https://github.com/user-attachments/assets/23d20620-adbf-4d7f-ba62-635397912a2c" />
 
+
 ## Step 7: Configure osTicket WebUI and HeidiSQL
 
-With the dependencies now fully installed, and the osTicket files uploaded to the server, the next step is to configure the web interface and prepare the database that osTicket will use. This will require configuring permissions, enablinge extensions and deploying the MySQL database.
 
-First, verify that osticket is working. Within the VM, open a web browser and enter `http://localhost/osTIcket/setup/` to the URL field. You should be redirected to the setup page for osTicket (as seen below).
+With the dependencies now fully installed, and the osTicket files uploaded to the server, the next step is to configure the web interface and assign the database that osTicket will use. This will require configuring permissions, extensions and deploying the MySQL database.
 
-nd you should be redirected to the osTicket setup page. This confirms that osTicket is installed and working.
+First, verify that osticket is working. Within the VM, open a web browser and enter `http://localhost/osTIcket/setup/` to the URL field. If working, you should be redirected to the setup page for osTicket (as seen below).
 <img width="2506" height="1972" alt="osTicket page (after stop-starting IIS)" src="https://github.com/user-attachments/assets/a05c99f8-ebcf-4c4c-b311-5e2f5773f67a" />
 
-Enable the extensions, by opening IIS manager, from Step 3. &nbsp;
-Within PHP Manager click "enable or disable extensions"
+Next, return to the PHP Manager within the Windows IIS Manager (as described in Step 3). &nbsp;
+Once inside the PHP Manager, select "Enable or disable an extension" under the PHP Extensions header.
 <img width="2604" height="1703" alt="php-manager-extensions-anno" src="https://github.com/user-attachments/assets/77c7fae6-4658-4103-a6b2-33557f4da4fb" />
 
-Find and select an extension called `php_intl.dll`, and enable it using the action menu in the upper right.
+Within the PHP extensions menu find and select an extension called `php_intl.dll` and then select "enable" under the Actions menu in the upper right.
+This extension allows osTicket to support multiple languages and formats based on end-user locales (e.g., translation, transliteration)
 
 _Note_. As of PHP 8.4 the imap extension is deprecated and no longer required to run osTicket (As referenced [here](https://www.php.net/manual/en/imap.installation.php) and [here)](https://forum.osticket.com/d/106559-php-84-drops-built-in-php-imap-support)
 <img width="2604" height="1705" alt="phpmanager - enable phpintl-anno" src="https://github.com/user-attachments/assets/442a584d-b5e9-4526-a779-af658b0de3ed" />
 
-refreshing the osTicket website should now redirect you to the "missing config file" screen
+With the extensions configured, refreshing the osTicket website should now redirect to another setup screen with a warning about a "missing config file"
 <img width="2494" height="1795" alt="missing config" src="https://github.com/user-attachments/assets/5a685436-cd98-4d3a-b49e-ea3c7699a539" />
 
-To fix this navigate to `C:\inetpub\wwwroot\osTicket\include` and rename a file called `ost-sampleconfig.php` to `ost-config.php`
-<img width="2477" height="1784" alt="rename ost-sample-config-anno" src="https://github.com/user-attachments/assets/7be3039a-f236-412a-85b8-22eb7eca06d6" />
-As depicted here
+To fix this warning, open your file explorer, and navigate to `C:\inetpub\wwwroot\osTicket\include` and rename the file called `ost-sampleconfig.php` to `ost-config.php`
+<img width="2477" height="1784" alt="rename ost-sample-config-anno" src="https://github.com/user-attachments/assets/7be3039a-f236-412a-85b8-22eb7eca06d6" /> &nbsp;
+
+Here is an image of the file appropriately renamed.
 <img width="1357" height="51" alt="ost-configphp renamed" src="https://github.com/user-attachments/assets/9632244c-b9ef-4aa2-9a22-1e8285891195" />
 
-Next open the config file's properties `Alt + Enter` or by using the GUI
+Next, the security settings of the file must be reconfigured so osTicket can read and interact with it.
+Select the file, and open the "Properties" menu by hitting `Alt + Enter` or by using the GUI as depicted.
 <img width="1706" height="1003" alt="open properites-anno" src="https://github.com/user-attachments/assets/e2c1869d-9729-4cf3-bef6-72e2114d78db" />
 
-Open "Security" 
-
+Once opened, select the "Security" tab, followed by the "Advanced" option.
 <img width="809" height="977" alt="open security and advanced-anno" src="https://github.com/user-attachments/assets/bc75e646-9668-4fe0-93d0-18af2574d2f9" />
 
-disable inheritance + all
+In the new window, select "Disable Inheritance" and then "Remove all inherited permissions from this object" when prompted. 
+This will remove all Read, Write, and Execute permissions previously attributed to the file
+
 <img width="1530" height="997" alt="disable all inherited permissions-anno" src="https://github.com/user-attachments/assets/d7f9f00e-f01e-486b-aee9-cd45b14843f8" />
 
-add new permssion
+Once the previous permissions have been removed, Select "Add" to assign a new set of permissions, followed by "Select a Principal" in the next window.
 <img width="2485" height="1147" alt="add permission and select principal-anno-back" src="https://github.com/user-attachments/assets/687ea54e-ade6-4111-85e4-0d4d875d0f24" />
 
-Type `Everyone` select "check Names" to fix any syntax errors, and press `Okay`
-_Note_. For this tutorial 'Everyone' will have adminsistrator privileges. This is unwise for production environments, andd the actual permissions will be dependent on your use case
+In the new dialog, type `Everyone` in the object names textbox, then select "Check names" to fix any syntax errors, and press "Okay". This will assign literally **everyone** (i.e., users and admins) as the authorized entity for this file.
+_Note_. Assigning permissions in this manner is fine for this tutorial, but is seriously unwise for production environments, and the actual permissions would be dependent on your use case.
 <img width="2484" height="1147" alt="everyone, check names, okay-anno-back" src="https://github.com/user-attachments/assets/a0447ce0-0a9f-449d-966a-64220bc718bc" />
 
-enable full control, modify, and write. Then press okay
+Once the prinicpal has been configured, assign the permissions `Full Control`, `Modify`, and `Write` by filling the adjacent checkboxes, and selecting "Okay". Based on the security principal this will effectively grant adminstrator privileges to **everyone**
 <img width="2485" height="1147" alt="enable fc, mod, wr-anno-back" src="https://github.com/user-attachments/assets/067185fc-11ca-4904-a8cd-ee99755f327c" />
 
-On the next screen press `Apply` then `Okay`
+With the permissions assigned, press `Apply` to load the new security settings, and then `Okay` to close the window.
 <img width="1529" height="996" alt="apply and okay-anno" src="https://github.com/user-attachments/assets/cafd29e1-1a07-4a9b-b748-f3c69a138e12" />
 
-The osticket page should now look like this upon refreshing
+Refreshing the osTicket webpage, should now display the the pre-install adminstrator setup page.
 <img width="2502" height="1795" alt="new osTicket page" src="https://github.com/user-attachments/assets/4fae2405-8c0f-460e-9309-0a0fb380fd5a" />
 
 Fill out most of the form but do not install, leave the database settings blank for now, those will be filled after the next step
@@ -265,7 +282,9 @@ Return to the osTicket form in the webUI. And fill in the database settings, wit
 the page will begin running the install
 <img width="1646" height="2328" alt="osTicket doing things" src="https://github.com/user-attachments/assets/80a72737-0e4f-4b74-bc92-dd1f25711924" />
 
+
 ## Step 8: Post-Install Cleanup
+
 
 After the install is complete, the page will redirect to this confirmation screen, and instructions to cleanup config settings
 <img width="2545" height="1660" alt="task to delete things" src="https://github.com/user-attachments/assets/f59cfb7e-e79f-480e-9293-8b52c6a439bd" />
