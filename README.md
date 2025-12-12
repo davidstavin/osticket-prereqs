@@ -173,7 +173,7 @@ Stopping the server may take a few seconds, but once completed, hit the START bu
 
 ## Step 6: Install osTicket
 
-After registering PHP and restarting the webserver, the osTicket files downloaded earlier need to be unpacked and "uploaded" (i.e., installed) to the server.
+After registering PHP and restarting the webserver, the osTicket files downloaded from earlier need to be unpacked and "uploaded" (i.e., installed) to the server.
 
 To install osTicket, begin by extracting the `.zip` containing the files, as described earlier. This time, however, the files can just be extracted to the same downloads folder as the other dependencies.
 Once extracted, enter the osTicket directory and move the `Upload` folder by cutting it `CTRL + X` or using the GUI
@@ -189,9 +189,13 @@ Now rename the `Upload` folder to `osTicket`. Although, technically only a folde
 <img width="2360" height="1367" alt="rename file-anno" src="https://github.com/user-attachments/assets/7c468902-39d6-4518-b4bf-90a4a9fdabfb" />
 <img width="2351" height="1371" alt="file renamed-anno" src="https://github.com/user-attachments/assets/23d20620-adbf-4d7f-ba62-635397912a2c" />
 
-## Step 7: Setup osTicket WebUI and HeidiSQL
+## Step 7: Configure osTicket WebUI and HeidiSQL
 
-In the VMs web browser, enter `http://localhost/osTIcket/setup/` to the url field and you should be redirected to the osTicket setup page. This confirms that osTicket is installed and working.
+With the dependencies now fully installed, and the osTicket files uploaded to the server, the next step is to configure the web interface and prepare the database that osTicket will use. This will require configuring permissions, enablinge extensions and deploying the MySQL database.
+
+First, verify that osticket is working. Within the VM, open a web browser and enter `http://localhost/osTIcket/setup/` to the URL field. You should be redirected to the setup page for osTicket (as seen below).
+
+nd you should be redirected to the osTicket setup page. This confirms that osTicket is installed and working.
 <img width="2506" height="1972" alt="osTicket page (after stop-starting IIS)" src="https://github.com/user-attachments/assets/a05c99f8-ebcf-4c4c-b311-5e2f5773f67a" />
 
 Enable the extensions, by opening IIS manager, from Step 3. &nbsp;
