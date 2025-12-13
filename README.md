@@ -246,60 +246,62 @@ Once the previous permissions have been removed, Select "Add" to assign a new se
 <img width="2485" height="1147" alt="add permission and select principal-anno-back" src="https://github.com/user-attachments/assets/687ea54e-ade6-4111-85e4-0d4d875d0f24" />
 
 In the new dialog, type `Everyone` in the object names textbox, then select "Check names" to fix any syntax errors, and press "Okay". This will assign literally **everyone** (i.e., users and admins) as the authorized entity for this file.
-_Note_. Assigning permissions in this manner is fine for this tutorial, but is seriously unwise for production environments, and the actual permissions would be dependent on your use case.
+
+_Note_. Assigning permissions in this manner is fine for this tutorial, but is seriously unwise for production environments, and the appropriate permissions would be dependent on the use case.
 <img width="2484" height="1147" alt="everyone, check names, okay-anno-back" src="https://github.com/user-attachments/assets/a0447ce0-0a9f-449d-966a-64220bc718bc" />
 
-Once the prinicpal has been configured, assign the permissions `Full Control`, `Modify`, and `Write` by filling the adjacent checkboxes, and selecting "Okay". Based on the security principal this will effectively grant adminstrator privileges to **everyone**
+Once the prinicpal has been configured, assign the permissions `Full Control`, `Modify`, and `Write` by filling the adjacent checkboxes, and selecting "Okay". Based on the security principal this will effectively grant adminstrator privileges to *everyone*
 <img width="2485" height="1147" alt="enable fc, mod, wr-anno-back" src="https://github.com/user-attachments/assets/067185fc-11ca-4904-a8cd-ee99755f327c" />
 
 With the permissions assigned, press `Apply` to load the new security settings, and then `Okay` to close the window.
 <img width="1529" height="996" alt="apply and okay-anno" src="https://github.com/user-attachments/assets/cafd29e1-1a07-4a9b-b748-f3c69a138e12" />
 
-Refreshing the osTicket webpage, should now display the the pre-install adminstrator setup page.
+Return to the browser and refresh the osTicket webpage. A new installer page with a first-time setup form, as seen below, should be displayed.
 <img width="2502" height="1795" alt="new osTicket page" src="https://github.com/user-attachments/assets/4fae2405-8c0f-460e-9309-0a0fb380fd5a" />
 
 Fill out most of the form but do not install, leave the database settings blank for now, those will be filled after the next step
 <img width="2548" height="2549" alt="form" src="https://github.com/user-attachments/assets/77a91d44-3c76-489e-a5c3-a19d9b828188" />
 
-In order to fill out the database information, HeidiSQL will need to be installed, in order to assign the MySQL database that osTicket will use.
-In the downloads folder containing the dependencies, Run the installer for HeidiSQL, select "Install for all users".
-<img width="2485" height="1504" alt="install heidi-anno" src="https://github.com/user-attachments/assets/81dc6dc6-4b53-48e2-94b2-73a9012dc1dc" />
-
-Once selected, follow the prompts to install the program.
-<img width="1193" height="886" alt="accept heidi" src="https://github.com/user-attachments/assets/cb7fb8d1-c76b-4dc1-9e6b-1cda845ba246" />
+To fill out the database information, HeidiSQL will need to be installed, to configure the MySQL database that osTicket will use.
+In the downloads folder with the dependencies, Run the HeidiSQL installer and select "Install for all users". Then follow= the prompts to install the program.
+<img width="2485" height="1504" alt="install heidi-comp-anno" src="https://github.com/user-attachments/assets/349b2e84-537a-49f1-994c-31160b2a2a9d" />
 
 After installation, open HeidiSQL. Select "New" and fill out the security info for the MySQL database that was created earlier. Then click "Open"
 <img width="1372" height="965" alt="fill heidi database settings-anno" src="https://github.com/user-attachments/assets/f94bbf03-79c8-4088-82f3-98e15b8144c2" />
 
-In the new menu, right click on the unnamed session. Click "create-new" then "database"
+In the new menu, right click on the unnamed session. Click "create-new" then "Database"
 <img width="2176" height="1436" alt="create new database-anno" src="https://github.com/user-attachments/assets/86510c86-c9d8-4ca0-a26c-186e05ae344e" />
 
-Name the database `osTicket`, then click `Okay`.
+In the new dialog, name the database `osTicket`, then click `Okay`.
 
-<img width="646" height="523" alt="name the database" src="https://github.com/user-attachments/assets/4f3ede54-741c-4c37-8c82-7a6fe190718f" />
+<img width="646" height="523" alt="name the database" src="https://github.com/user-attachments/assets/4f3ede54-741c-4c37-8c82-7a6fe190718f" /> &nbsp;
 
-Return to the osTicket form in the webUI. And fill in the database settings, with the info from heidisql and mysql, then click `Install Now`
+Return to the osTicket form in the webUI. And fill in the database settings, with the name of the database createdd in HeidiSQL (i.e., `osTicket`) and the MySQL security credentials to authorize the database connection, then click `Install Now`
 <img width="1625" height="841" alt="osTicket fill out database settings-anno" src="https://github.com/user-attachments/assets/ff0344b8-f4d7-4e4e-9d2e-b8badebbdc23" />
 
-the page will begin running the install
+The webserver will begin running the installation. When finished, osTicket should be successfully installed!
 <img width="1646" height="2328" alt="osTicket doing things" src="https://github.com/user-attachments/assets/80a72737-0e4f-4b74-bc92-dd1f25711924" />
 
 
 ## Step 8: Post-Install Cleanup
 
 
-After the install is complete, the page will redirect to this confirmation screen, and instructions to cleanup config settings
+After installation, the webpage will reload to confirm that osTicket is set up, and display instructions for hardening application security.
 <img width="2545" height="1660" alt="task to delete things" src="https://github.com/user-attachments/assets/f59cfb7e-e79f-480e-9293-8b52c6a439bd" />
 
-delete the setup folder...
+First, navigate to the  `C:\inetpub\wwwroot\osTicket` directory and delete the `setup` folder. This is a security best practice that reduces the available attack surface, and many organizations may mandate this for production environments.
 <img width="2792" height="1738" alt="delete the setup folder-anno" src="https://github.com/user-attachments/assets/0ae493a4-a976-4d1f-a06b-e87a0d7f618e" />
 
-find the ost-config file from earlier
-img...
-
-change permsissions...
+Second, return to the `ost-config.php` file found in the `C:\inetpub\wwwroot\osTicket\include` directory. Reopen the security permissions tab as described in Step 7. Change the permissions to disable `Full Control`, `Modify`, and `Write`. 
+This will remove the adminstrator privileges previously granted to *Everyone*.
 <img width="2219" height="1260" alt="new permissions-anno" src="https://github.com/user-attachments/assets/d87b9c89-beb2-4b64-86ed-68cf6e397e28" />
 
-Confirm the agent and end-user panels both work.
+With the cleanup actions taken, confirm the functionality of both the Agent Portal `http://localhost/osTicket/scp/login.php` and End User Support Center `http://localhost/osTicket/` pages by logging into the Agent Portal, and visting the Support Center
+
+Image of the Tickets Dashboard within Agent Portal
 <img width="2548" height="937" alt="osTicket install confirmed ticket-anno" src="https://github.com/user-attachments/assets/b14c4117-1cdb-4671-91c4-9c868d58ac48" />
 
+Image of the End User Support Center
+<img width="2549" height="1242" alt="user screen" src="https://github.com/user-attachments/assets/05645581-04ab-4bf3-ad11-53c46bf7311d" />
+
+# Conclusion
