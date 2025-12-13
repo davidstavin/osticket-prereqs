@@ -261,16 +261,17 @@ Refreshing the osTicket webpage, should now display the the pre-install adminstr
 Fill out most of the form but do not install, leave the database settings blank for now, those will be filled after the next step
 <img width="2548" height="2549" alt="form" src="https://github.com/user-attachments/assets/77a91d44-3c76-489e-a5c3-a19d9b828188" />
 
-Install HeidiSQL. Select install for all users (again this is dependent on your use case, but generally this setting is unwise for production)
+In order to fill out the database information, HeidiSQL will need to be installed, in order to assign the MySQL database that osTicket will use.
+In the downloads folder containing the dependencies, Run the installer for HeidiSQL, select "Install for all users".
 <img width="2485" height="1504" alt="install heidi-anno" src="https://github.com/user-attachments/assets/81dc6dc6-4b53-48e2-94b2-73a9012dc1dc" />
 
-Follow the prompts to install the software.
+Once selected, follow the prompts to install the program.
 <img width="1193" height="886" alt="accept heidi" src="https://github.com/user-attachments/assets/cb7fb8d1-c76b-4dc1-9e6b-1cda845ba246" />
 
-Within HeidiSQL. Select "New" and then fill out the security info for the mySQL database you created earlier. Then click "Open"
+After installation, open HeidiSQL. Select "New" and fill out the security info for the MySQL database that was created earlier. Then click "Open"
 <img width="1372" height="965" alt="fill heidi database settings-anno" src="https://github.com/user-attachments/assets/f94bbf03-79c8-4088-82f3-98e15b8144c2" />
 
-In the new menu, right click on the unamed session. Click "create-new" then "database"
+In the new menu, right click on the unnamed session. Click "create-new" then "database"
 <img width="2176" height="1436" alt="create new database-anno" src="https://github.com/user-attachments/assets/86510c86-c9d8-4ca0-a26c-186e05ae344e" />
 
 Name the database `osTicket`, then click `Okay`.
