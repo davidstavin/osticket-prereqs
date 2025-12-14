@@ -3,9 +3,9 @@
 </p>
 
 # osTicket - Installing a Modern Ticketing System from Scratch
-This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.
+osTicket is a free, enterprise-quality, open-source support ticket system built with PHP, that enables organizations to efficiently manage, track, and resolve helpdesk support requests. It provides a clean, user-friendly web interface, for both end-users and support staff, along with automated reponses, filter-based ticket routing, and collision avoidance to prevent multiple agents from working on the same ticket. Additionally osTicket supports advanced SLA management, role-based agent permissions, thread actions, detailed ticket histories and built-in analytics for performance tracking and reporting.
 
-...osTicket is a ...... placeholder summary
+This repository offers a comprehensive walkthrough for installing and deploying osTicket from scratch, by using an Azure virtual machine (VM), Internet Information Services (IIS), the Common Gateway Interface (CGI) IIS module....
 
 ## Environments and Technologies Used
 
@@ -14,15 +14,14 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 - Internet Information Services (IIS)
 
 ## Operating Systems Used
-
+*Documentation written assuming Windows 11 as host Operarting System*
 - Remote Computer: Windows 11 Pro (25H2)
 - Host Computer: Windows 11 Home (25H2)
-*Documentation written assuming Windows 11 as host Operarting System*
 
 ## Installation Steps
 
 1. [Create a Virtual Machine (VM)](https://github.com/davidstavin/osticket-prereqs/blob/main/README.md#step-1-create-a-virtual-machine)
-2. [Download osTicekt Files & Dependencies](https://github.com/davidstavin/osticket-prereqs/blob/main/README.md#step-2-download-osticket-files--dependencies)
+2. [Download osTicket Files & Dependencies](https://github.com/davidstavin/osticket-prereqs/blob/main/README.md#step-2-download-osticket-files--dependencies)
 3. [Enable IIS with CGI in Windows](https://github.com/davidstavin/osticket-prereqs/tree/main?tab=readme-ov-file#step-3-enable-iis-with-cgi)
 4. [Install the Dependencies](https://github.com/davidstavin/osticket-prereqs/tree/main?tab=readme-ov-file#step-4-install-the-dependencies)
 5. [Register PHP within IIS](https://github.com/davidstavin/osticket-prereqs/tree/main#step-5-register-php-within-iis)
@@ -52,7 +51,7 @@ img...
 
 
 After completing step 1, and signing into the VM using Remote Desktop, proceed with downloading the neccessary dependencies for osTicket
-The following urls are the dependencies, listed in the order we will be installing them. Please download them to the remote computer.
+The following URLs are the dependencies, listed in the order we will be installing them. Please download them to the remote computer.
 
 _Note._ Windows 11 uses a x64 architecture, and is not compatabile with x86 (32-bit) software. Thus all the dependencies should be in the x64 format.
 
