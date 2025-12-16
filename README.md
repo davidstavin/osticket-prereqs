@@ -3,7 +3,7 @@
 </p>
 
 # osTicket - Installation and Deployment on Windows 11 using Azure, IIS, PHP, and MySQL
-osTicket is a free, open-source, enterprise-grade helpdesk ticket system built with PHP, that enables organizations to manage, track, and resolve support requests. It features a user-friendly web interface for both users and agents, automated reponses, and filter-based ticket routing, agent-collision avoidance, advanced SLA management, role-based agent permissions, thread actions, detailed ticket histories, and built-in analytics for performance tracking and reporting.
+osTicket is a free, open-source, enterprise-grade helpdesk ticket system built with PHP, that enables organizations to manage, track, and resolve support requests. It features a user-friendly web interface for both users and agents, automated reponses, filter-based ticket routing, agent collision avoidance, advanced SLA management, role-based permissions, thread actions, detailed ticket histories, and built-in analytics for performance tracking and reporting.
 
 This repository provides a step-by-step guide for installing and deploying osTicket on a fresh Windows 11 system. The walkthrough covers the full process: from deploying an Azure Virtual Machine (VM), to installing dependencies (e.g., URL Rewrite, MySQL), enabling Internet Information Services (IIS) and the Common Gateway Interface (CGI), configuring PHP and required extensions, creating a MySQL database using HeidiSQL and finally deploying osTicket.
 
@@ -25,7 +25,7 @@ This repository provides a step-by-step guide for installing and deploying osTic
 2. [Download osTicket Files & Dependencies](https://github.com/davidstavin/osticket-prereqs/blob/main/README.md#step-2-download-osticket-files--dependencies)
 3. [Enable IIS with CGI in Windows](https://github.com/davidstavin/osticket-prereqs/tree/main?tab=readme-ov-file#step-3-enable-iis-with-cgi)
 4. [Install the Dependencies](https://github.com/davidstavin/osticket-prereqs/tree/main?tab=readme-ov-file#step-4-install-the-dependencies)
-5. [Register PHP within IIS](https://github.com/davidstavin/osticket-prereqs/tree/main#step-5-register-php-within-iis)
+5. [Register PHP](https://github.com/davidstavin/osticket-prereqs/tree/main#step-5-register-php-within-iis)
 6. [Install osTicket](https://github.com/davidstavin/osticket-prereqs/tree/main#step-6-install-osticket)
 7. [Setup osTicket WebUI and HeidiSQL](https://github.com/davidstavin/osticket-prereqs/tree/main#step-7-setup-osticket-webui-and-heidisql)
 8. [Post-Install Cleanup](https://github.com/davidstavin/osticket-prereqs/tree/main#step-8-post-install-cleanup)
@@ -51,10 +51,10 @@ img...
 ## Step 2: Download osTicket Files & Dependencies
 
 
-After completing step 1, and signing into the VM using Remote Desktop, proceed with downloading the neccessary dependencies for osTicket
-The following URLs are the dependencies, listed in the order we will be installing them. Please download them to the remote computer.
+After completing Step 1, and signing into the VM via Remote Desktop, the next step is to download the osTicket files and dependencies to the remote VM.
+The URLs below list the dependencies in the order they will be installed. Please download them, but do not install them at this moment, installation will be done in Step 4.
 
-_Note._ Windows 11 uses a x64 architecture, and is not compatabile with x86 (32-bit) software. Thus all the dependencies should be in the x64 format.
+_Note._ Windows 11 uses a x64 architecture, and does not support x86 (32-bit) software. Thus the downloaded dependencies should be in the x64 format.
 
 ### Dependencies
 
@@ -86,7 +86,7 @@ Below is an image of the downloads folder containing all the (x64) dependencies 
 ## Step 3: Enable IIS with CGI
 
 
-Before proceeding with dependency installation, IIS for Windows needs to be enabled. This will allow us to run osTicket as a Webserver.
+Before proceeding with dependency installation, IIS for Windows needs to be enabled. This will allow osTicket to run as a Webserver.
 
 Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
 *Alternatively*, use the Windows Start Menu, search for `Turn Windows features on or off`, right-click and press "Run as Adminstrator"
@@ -131,7 +131,6 @@ After extracting PHP as described, return to the remaining dependencies. Find an
 
 ### v. Install MySQL
 Next MySQL Server will need to be installed. Open `mysql-9.5.0-winx64.msi`, select "Next" and follow the prompts once again.
-after installing vcRedist, install the MySQL server
 <img width="2101" height="1185" alt="osTicket_install_MySQL-anno_num" src="https://github.com/user-attachments/assets/c611c031-2324-4791-b585-ccc54b4e070e" />
 
 When prompted to choose an installation setup type, choose "Typical" and select next.
@@ -160,26 +159,26 @@ To register PHP, begin by pressing `Windows + R`, type `inetmgr` and hit `Ctrl +
 
 <img width="764" height="475" alt="Win+R IIS-Manager" src="https://github.com/user-attachments/assets/aad9e055-29b1-41a0-ac3b-60fe5ca36310" />
 
-Inside the now opened IIS Manager, find the widget for PHP Manager as depicted, and double-click to enter it's confiugration menu.
+Inside the now opened IIS Manager, find the widget for PHP Manager as depicted, and double-click to enter its configuration menu.
 <img width="2604" height="1125" alt="iismanager-opened-annotated" src="https://github.com/user-attachments/assets/b20a1f99-73e0-4c5c-8244-e898d3cdca6c" />
 
 Now, click "Register New PHP Version"
 <img width="2604" height="1632" alt="register-new-php version-anno" src="https://github.com/user-attachments/assets/09293c77-8cd2-44d4-964c-67ad294e2edc" />
 
-Type `C:\PHP\php-cgi.exe` as the file path, and press okay.
+Type `C:\PHP\php-cgi.exe` as the file path, and press "Okay".
 _Alternatively_, navigate to it manually by clicking `...` on the right-most side to browse to the executable using the GUI (See the next image).
 <img width="1023" height="446" alt="phpversiondirectory" src="https://github.com/user-attachments/assets/0d69a1f0-f495-4ecd-9a40-b730d7162683" />
 
 (The exe file depicted through 'browse')
 <img width="2365" height="1419" alt="phpversionnav" src="https://github.com/user-attachments/assets/e14cffc4-2d61-4f65-aece-d8419cdbec57" />
 
-After providing the executable's file path click OK, and you will be returned to the PHP Manager which will no longer display the warning banner "PHP is not enabled", and the options for "Change PHP version" and "Check phpinfo" will be interactable.
+After providing the executable's file path, and you will be returned to the PHP Manager which will no longer display the warning banner "PHP is not enabled", and the options for "Change PHP version" and "Check phpinfo" will be interactable.
 <img width="2604" height="1632" alt="php-registered" src="https://github.com/user-attachments/assets/60bee006-523e-4624-8c27-0443fe140986" />
 
-Next, to apply these changes, the webserver will need to be restarted. Return to the IIS Manager's dashboard by clicking the remote VM's name (in this case "osTicket-VM) under the connections panel, and then hit STOP on the action side panel.
+Next, to apply these changes, the webserver will need to be restarted. Return to the IIS Manager's dashboard by clicking the remote VM's name (in this case "osTicket-VM) under the "Connections" panel, and then hit `STOP` under the "Actions" panel.
 <img width="2604" height="1101" alt="click-stop-anno" src="https://github.com/user-attachments/assets/ff153f88-ec56-4da1-830d-f71d72733d4c" />
 
-Stopping the server may take a few seconds, but once completed, hit the START button, to relaunch the IIS webserver.
+Stopping the server may take a few seconds, but once completed, hit the `START` button, to relaunch the IIS webserver.
 <img width="2604" height="1124" alt="click-start-anno" src="https://github.com/user-attachments/assets/37a4c284-ab57-49b2-8e3d-26d89bc8f7c1" />
 
 
@@ -198,8 +197,10 @@ Next, navigate to your C:\ drive, and open the `inetpub` folder
 Then, open the `wwwroot` folder and paste the `Upload` folder `CTRL + V` or using the GUI.
 <img width="2360" height="1373" alt="paste-osticket-anno" src="https://github.com/user-attachments/assets/50a127e7-3992-4cb6-a479-ebb355a76579" />
 
-Now rename the `Upload` folder to `osTicket`. Although, technically only a folder was moved into another directory on the same drive, this has effectively "uploaded" the osTicket setup files into the IIS webserver.
+Now rename the `Upload` folder to `osTicket`. Although, technically a folder was moved into another directory within the same drive, this has effectively "uploaded" the osTicket setup files into the IIS webserver.
 <img width="2360" height="1367" alt="rename file-anno" src="https://github.com/user-attachments/assets/7c468902-39d6-4518-b4bf-90a4a9fdabfb" />
+
+Below is an image of the uploaded file renamed to osTicket
 <img width="2351" height="1371" alt="file renamed-anno" src="https://github.com/user-attachments/assets/23d20620-adbf-4d7f-ba62-635397912a2c" />
 
 
@@ -221,7 +222,7 @@ This extension allows osTicket to support multiple languages and formats based o
 _Note_. As of PHP 8.4 the imap extension is deprecated and no longer required to run osTicket (As referenced [here](https://www.php.net/manual/en/imap.installation.php) and [here)](https://forum.osticket.com/d/106559-php-84-drops-built-in-php-imap-support)
 <img width="2604" height="1705" alt="phpmanager - enable phpintl-anno" src="https://github.com/user-attachments/assets/442a584d-b5e9-4526-a779-af658b0de3ed" />
 
-With the extensions configured, refreshing the osTicket website should now redirect to another setup screen with a warning about a "missing config file"
+With the extensions configured, refreshing the osTicket website should now redirect to another setup screen with a warning about a missing configuration file.
 <img width="2494" height="1795" alt="missing config" src="https://github.com/user-attachments/assets/5a685436-cd98-4d3a-b49e-ea3c7699a539" />
 
 To fix this warning, open your file explorer, and navigate to `C:\inetpub\wwwroot\osTicket\include` and rename the file called `ost-sampleconfig.php` to `ost-config.php`
@@ -245,9 +246,9 @@ This will remove all Read, Write, and Execute permissions previously attributed 
 Once the previous permissions have been removed, Select "Add" to assign a new set of permissions, followed by "Select a Principal" in the next window.
 <img width="2485" height="1147" alt="add permission and select principal-anno-back" src="https://github.com/user-attachments/assets/687ea54e-ade6-4111-85e4-0d4d875d0f24" />
 
-In the new dialog, type `Everyone` in the object names textbox, then select "Check names" to fix any syntax errors, and press "Okay". This will assign literally **everyone** (i.e., users and admins) as the authorized entity for this file.
+In the new dialog, type `Everyone` in the object names textbox, then select `Check Names` to fix any syntax errors, and press `Okay`. This will assign literally **everyone** (i.e., users and admins) as the authorized entity for this file.
 
-_Note_. Assigning permissions in this manner is fine for this tutorial, but is seriously unwise for production environments, and the appropriate permissions would be dependent on the use case.
+_Note_. Assigning permissions in this manner is fine for this tutorial, but is seriously unwise for production environments.
 <img width="2484" height="1147" alt="everyone, check names, okay-anno-back" src="https://github.com/user-attachments/assets/a0447ce0-0a9f-449d-966a-64220bc718bc" />
 
 Once the prinicpal has been configured, assign the permissions `Full Control`, `Modify`, and `Write` by filling the adjacent checkboxes, and selecting "Okay". Based on the security principal this will effectively grant adminstrator privileges to *everyone*
@@ -263,13 +264,13 @@ Fill out most of the form but do not install, leave the database settings blank 
 <img width="2548" height="2549" alt="form" src="https://github.com/user-attachments/assets/77a91d44-3c76-489e-a5c3-a19d9b828188" />
 
 To fill out the database information, HeidiSQL will need to be installed, to configure the MySQL database that osTicket will use.
-In the downloads folder with the dependencies, Run the HeidiSQL installer and select "Install for all users". Then follow= the prompts to install the program.
+In the downloads folder with the dependencies, Run the HeidiSQL installer and select `Install for all users`. Then follow the prompts to install the program.
 <img width="2485" height="1504" alt="install heidi-comp-anno" src="https://github.com/user-attachments/assets/349b2e84-537a-49f1-994c-31160b2a2a9d" />
 
-After installation, open HeidiSQL. Select "New" and fill out the security info for the MySQL database that was created earlier. Then click "Open"
+After installation, open HeidiSQL. Select `New` and fill out the security info for the MySQL database that was created earlier. Then click `Open`
 <img width="1372" height="965" alt="fill heidi database settings-anno" src="https://github.com/user-attachments/assets/f94bbf03-79c8-4088-82f3-98e15b8144c2" />
 
-In the new menu, right click on the unnamed session. Click "create-new" then "Database"
+In the new menu, right click on the unnamed session. Click `Create New` then `Database`
 <img width="2176" height="1436" alt="create new database-anno" src="https://github.com/user-attachments/assets/86510c86-c9d8-4ca0-a26c-186e05ae344e" />
 
 In the new dialog, name the database `osTicket`, then click `Okay`.
