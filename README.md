@@ -2,16 +2,17 @@
 <img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
 </p>
 
-# osTicket - Installing a Modern Ticketing System from Scratch
-osTicket is a free, enterprise-quality, open-source support ticket system built with PHP, that enables organizations to efficiently manage, track, and resolve helpdesk support requests. It provides a clean, user-friendly web interface, for both end-users and support staff, along with automated reponses, filter-based ticket routing, and collision avoidance to prevent multiple agents from working on the same ticket. Additionally osTicket supports advanced SLA management, role-based agent permissions, thread actions, detailed ticket histories and built-in analytics for performance tracking and reporting.
+# osTicket - Installation and Deployment on Windows 11 using Azure, IIS, PHP, and MySQL
+osTicket is a free, open-source, enterprise-grade helpdesk ticket system built with PHP, that enables organizations to manage, track, and resolve support requests. It features a user-friendly web interface for both users and agents, automated reponses, and filter-based ticket routing, agent-collision avoidance, advanced SLA management, role-based agent permissions, thread actions, detailed ticket histories, and built-in analytics for performance tracking and reporting.
 
-This repository offers a comprehensive walkthrough for installing and deploying osTicket from scratch, by using an Azure virtual machine (VM), Internet Information Services (IIS), the Common Gateway Interface (CGI) IIS module....
+This repository provides a step-by-step guide for installing and deploying osTicket on a fresh Windows 11 system. The walkthrough covers the full process: from deploying an Azure Virtual Machine (VM), to installing dependencies (e.g., URL Rewrite, MySQL), enabling Internet Information Services (IIS) and the Common Gateway Interface (CGI), configuring PHP and required extensions, creating a MySQL database using HeidiSQL and finally deploying osTicket.
 
 ## Environments and Technologies Used
-
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
 - Internet Information Services (IIS)
+- MySQL Server
+- PHP
 
 ## Operating Systems Used
 *Documentation written assuming Windows 11 as host Operarting System*
@@ -303,4 +304,4 @@ Image of the Tickets Dashboard within Agent Portal
 Image of the End User Support Center
 <img width="2549" height="1242" alt="user screen" src="https://github.com/user-attachments/assets/05645581-04ab-4bf3-ad11-53c46bf7311d" />
 
-# Conclusion
+## Congratulations, osTicket is now fully installed and deployed!
