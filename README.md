@@ -3,7 +3,7 @@
 </p>
 
 # osTicket - Installation and Deployment on Windows 11 using Azure, IIS, PHP, and MySQL
-osTicket is a free, open-source, enterprise-grade helpdesk ticket system built with PHP, that enables organizations to manage, track, and resolve support requests. It features a user-friendly web interface for both users and agents, automated reponses, filter-based ticket routing, agent collision avoidance, advanced SLA management, role-based permissions, thread actions, detailed ticket histories, and built-in analytics for performance tracking and reporting.
+osTicket is a free, open-source, enterprise-grade helpdesk ticket system built with PHP, that enables organizations to manage, track, and resolve support requests. It features a user-friendly web interface for both users and agents, along with automated reponses, filter-based ticket routing, agent collision avoidance, and advanced SLA management. Additionally it includes role-based permissions, thread actions, detailed ticket histories, and built-in analytics for performance tracking and reporting.
 
 This repository provides a step-by-step guide for installing and deploying osTicket on a fresh Windows 11 system. The walkthrough covers the full process: from deploying an Azure Virtual Machine (VM), to installing dependencies (e.g., URL Rewrite, MySQL), enabling Internet Information Services (IIS) and the Common Gateway Interface (CGI), configuring PHP and required extensions, creating a MySQL database using HeidiSQL and finally deploying osTicket.
 
@@ -43,9 +43,8 @@ After deployment, navigate to the VM dashboard within Azure and copy the Public 
 Using the Windows Start Menu search for `Remote Desktop Connection` or `RDC` and paste the VM's IP Address `CTRL + V`
 <img width="805" height="472" alt="osTicket-rdc-anno" src="https://github.com/user-attachments/assets/c17ca01c-38be-48fb-bab9-794995849124" />
 
-Then sign into the VM using the security credentials assigned during its creation
-
-img...
+Then sign into the VM with the security credentials assigned during creation
+<img width="886" height="819" alt="vm-login-anno" src="https://github.com/user-attachments/assets/9940a846-769f-46e9-be37-ccca9b07eea6" />
 
 
 ## Step 2: Download osTicket Files & Dependencies
@@ -167,9 +166,9 @@ Now, click "Register New PHP Version"
 
 Type `C:\PHP\php-cgi.exe` as the file path, and press "Okay".
 _Alternatively_, navigate to it manually by clicking `...` on the right-most side to browse to the executable using the GUI (See the next image).
-<img width="1023" height="446" alt="phpversiondirectory" src="https://github.com/user-attachments/assets/0d69a1f0-f495-4ecd-9a40-b730d7162683" />
+<img width="1023" height="446" alt="phpversiondirectory-anno" src="https://github.com/user-attachments/assets/d9c71de3-7ccc-48c1-b417-2c787d691bbf" />
 
-(The exe file depicted through 'browse')
+(Here is an image of the .exe file depicted through 'Browse')
 <img width="2365" height="1419" alt="phpversionnav" src="https://github.com/user-attachments/assets/e14cffc4-2d61-4f65-aece-d8419cdbec57" />
 
 After providing the executable's file path, and you will be returned to the PHP Manager which will no longer display the warning banner "PHP is not enabled", and the options for "Change PHP version" and "Check phpinfo" will be interactable.
@@ -305,4 +304,4 @@ Image of the Tickets Dashboard within Agent Portal
 Image of the End User Support Center
 <img width="2549" height="1242" alt="user screen" src="https://github.com/user-attachments/assets/05645581-04ab-4bf3-ad11-53c46bf7311d" />
 
-## Congratulations, osTicket is now fully installed and deployed!
+## Congratulations!! osTicket is now fully installed and deployed!
