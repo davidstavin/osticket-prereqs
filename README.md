@@ -43,7 +43,7 @@ After deployment, navigate to the VM dashboard within Azure and copy the Public 
 Using the Windows Start Menu search for `Remote Desktop Connection` or `RDC` and paste the VM's IP Address `CTRL + V`
 <img width="805" height="472" alt="osTicket-rdc-anno" src="https://github.com/user-attachments/assets/c17ca01c-38be-48fb-bab9-794995849124" />
 
-Then sign into the VM with the security credentials assigned during creation
+Then sign into the VM with the security credentials submitted during creation
 <img width="886" height="819" alt="vm-login-anno" src="https://github.com/user-attachments/assets/9940a846-769f-46e9-be37-ccca9b07eea6" />
 
 
