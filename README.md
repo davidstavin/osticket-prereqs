@@ -34,8 +34,8 @@ This repository provides a step-by-step guide for installing and deploying osTic
 ## Step 1: Create a Virtual Machine
 
 
-Start by creating a VM in MS Azure with at least 4 vCPUs. Below is the summary of the VM used in this tutorial. (NOTE UPDATE TO 4 vCPU image)
-<img width="7680" height="4141" alt="osTicket_vm-creation" src="https://github.com/user-attachments/assets/40d9e748-afe8-4023-8b80-d9b384fdbb2a" />
+Start by creating a VM in Microsoft Azure with at least 4 vCPUs. Below is the summary of the VM used in this tutorial.
+<img width="7680" height="4144" alt="vm-creation-4vCPUs" src="https://github.com/user-attachments/assets/0753da4b-013d-488a-9494-175010178f74" />
 
 After deployment, navigate to the VM dashboard within Azure and copy the Public IP of the new VM `CTRL + C`
 <img width="7680" height="1698" alt="osTicket_grab-ip" src="https://github.com/user-attachments/assets/679a8073-1a19-479e-adf5-b8c81ffcfe0a" />
