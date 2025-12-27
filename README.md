@@ -40,7 +40,7 @@ Start by creating a VM in Microsoft Azure with at least 4 vCPUs. Below is the su
 After deployment, navigate to the VM dashboard within Azure and copy the Public IP of the new VM `CTRL + C`
 <img width="7680" height="1698" alt="osTicket_grab-ip" src="https://github.com/user-attachments/assets/679a8073-1a19-479e-adf5-b8c81ffcfe0a" />
 
-Using the Windows Start Menu search for `Remote Desktop Connection` or `RDC` and paste the VM's IP Address `CTRL + V`
+Using the Windows Start Menu search for `Remote Desktop Connection` and paste the VM's IP Address `CTRL + V`
 <img width="805" height="472" alt="osTicket-rdc-anno" src="https://github.com/user-attachments/assets/c17ca01c-38be-48fb-bab9-794995849124" />
 
 Then sign into the VM with the security credentials submitted during creation
@@ -50,7 +50,7 @@ Then sign into the VM with the security credentials submitted during creation
 ## Step 2: Download osTicket Files & Dependencies
 
 
-After completing Step 1, and signing into the VM via Remote Desktop, the next step is to download the osTicket files and dependencies to the remote VM.
+After completing Step 1 and signing into the VM via Remote Desktop, the next step is to download the osTicket files and dependencies to the remote VM.
 The URLs below list the dependencies in the order they will be installed. Please download them, but do not install them at this moment, installation will be done in Step 4.
 
 _Note._ Windows 11 uses a x64 architecture, and does not support x86 (32-bit) software. Thus the downloaded dependencies should be in the x64 format.
@@ -60,7 +60,7 @@ _Note._ Windows 11 uses a x64 architecture, and does not support x86 (32-bit) so
 [PHP](https://www.php.net/downloads.php)
 - General Purpose FOSS Scripting Language for web-development. Allows for the creation of interactive websites
 
-[PHP Manager for IIS](https://www.iis.net/downloads/community/2018/05/php-manager-150-for-iis-10) (If the download url is broken, download from [Github](https://github.com/RonaldCarter/PHPManager/releases)
+[PHP Manager for IIS](https://www.iis.net/downloads/community/2018/05/php-manager-150-for-iis-10) (If the download doesn't start, obtain from [Github](https://github.com/RonaldCarter/PHPManager/releases)
 - Useful tool for managing PHP Installations, such as settings, extensions, and PHP registration
 
 [IIS URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)
@@ -69,7 +69,7 @@ _Note._ Windows 11 uses a x64 architecture, and does not support x86 (32-bit) so
 [Visual C++ Reistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-supported-redistributable-version)
 - Required package to run applications developed with Visual C++
 
-[MySQL Server (Community Edition)](https://dev.mysql.com/downloads/mysql/) (if you building for production: [MySQL Server (Enterprise Edition)](https://www.mysql.com/downloads/)
+[MySQL Server (Community Edition)](https://dev.mysql.com/downloads/mysql/) (if building for production: [MySQL Server (Enterprise Edition)](https://www.mysql.com/downloads/)
 - Leading Database for Web Applications. Uses a relational database to organize, structure, and manage data. (e.g., storing and retrieving)
 
 [osTicket](https://osticket.com/download/)
@@ -96,7 +96,7 @@ In the new "Windows Features" screen scroll down until you find "Internet Inform
 
 <img width="903" height="784" alt="osTicket_IIS-on-anno" src="https://github.com/user-attachments/assets/1339a204-d7ee-47a5-976f-f5c49f23b189" /> &nbsp;
 
-Next, to enable CGI. Click the `+` symbol adjacent the IIS checkbox, to expand its nested options. Then find and expand "World Wide Services", and then "Application Development Features". Scroll down until you find "CGI" and enable it.
+Next, to enable CGI. Click the `+` symbol adjacent the IIS checkbox, to expand its nested options. Then find and expand "World Wide Services" and then "Application Development Features". Scroll down until you find "CGI" and enable it.
 <img width="899" height="780" alt="osTicket_CGI-on-anno" src="https://github.com/user-attachments/assets/3fcba6bd-73ff-4aa0-8cfe-df461a86c032" /> &nbsp;
 
 After clicking `OK`, wait for the features to be applied, then close the window
@@ -161,17 +161,17 @@ To register PHP, begin by pressing `Windows + R`, type `inetmgr` and hit `Ctrl +
 Inside the now opened IIS Manager, find the widget for PHP Manager as depicted, and double-click to enter its configuration menu.
 <img width="2604" height="1125" alt="iismanager-opened-annotated" src="https://github.com/user-attachments/assets/b20a1f99-73e0-4c5c-8244-e898d3cdca6c" />
 
-Now, click "Register New PHP Version"
+Now, click "Register new PHP version"
 <img width="2604" height="1632" alt="register-new-php version-anno" src="https://github.com/user-attachments/assets/09293c77-8cd2-44d4-964c-67ad294e2edc" />
 
 Type `C:\PHP\php-cgi.exe` as the file path, and press "Okay".
 _Alternatively_, navigate to it manually by clicking `...` on the right-most side to browse to the executable using the GUI (See the next image).
 <img width="1023" height="446" alt="phpversiondirectory-anno" src="https://github.com/user-attachments/assets/d9c71de3-7ccc-48c1-b417-2c787d691bbf" />
 
-(Here is an image of the .exe file depicted through 'Browse')
+(Here is an image of the .exe file depicted in the file explorer after browsing to it manually)
 <img width="2365" height="1419" alt="phpversionnav" src="https://github.com/user-attachments/assets/e14cffc4-2d61-4f65-aece-d8419cdbec57" />
 
-After providing the executable's file path, and you will be returned to the PHP Manager which will no longer display the warning banner "PHP is not enabled", and the options for "Change PHP version" and "Check phpinfo" will be interactable.
+After providing the executable's file path, and you will be returned to the PHP Manager which will no longer display the banner "PHP is not enabled", and the options for "Change PHP version" and "Check phpinfo" will be interactable.
 <img width="2604" height="1632" alt="php-registered" src="https://github.com/user-attachments/assets/60bee006-523e-4624-8c27-0443fe140986" />
 
 Next, to apply these changes, the webserver will need to be restarted. Return to the IIS Manager's dashboard by clicking the remote VM's name (in this case "osTicket-VM) under the "Connections" panel, and then hit `STOP` under the "Actions" panel.
@@ -203,7 +203,7 @@ Below is an image of the uploaded file renamed to osTicket
 <img width="2351" height="1371" alt="file renamed-anno" src="https://github.com/user-attachments/assets/23d20620-adbf-4d7f-ba62-635397912a2c" />
 
 
-## Step 7: Configure osTicket WebUI and HeidiSQL
+## Step 7: Setup osTicket WebUI and HeidiSQL
 
 
 With the dependencies now fully installed, and the osTicket files uploaded to the server, the next step is to configure the web interface and assign the database that osTicket will use. This will require configuring permissions, extensions and deploying the MySQL database.
@@ -211,7 +211,7 @@ With the dependencies now fully installed, and the osTicket files uploaded to th
 First, verify that osticket is working. Within the VM, open a web browser and enter `http://localhost/osTicket/setup/` to the URL field. If working, you should be redirected to the setup page for osTicket (as seen below).
 <img width="2506" height="1972" alt="osTicket page (after stop-starting IIS)" src="https://github.com/user-attachments/assets/a05c99f8-ebcf-4c4c-b311-5e2f5773f67a" />
 
-Next, return to the PHP Manager within the Windows IIS Manager (as described in Step 3). &nbsp;
+Next, return to the PHP Manager within the Windows IIS Manager (as described in Step 3).
 Once inside the PHP Manager, select "Enable or disable an extension" under the PHP Extensions header.
 <img width="2604" height="1703" alt="php-manager-extensions-anno" src="https://github.com/user-attachments/assets/77c7fae6-4658-4103-a6b2-33557f4da4fb" />
 
@@ -276,7 +276,7 @@ In the new dialog, name the database `osTicket`, then click `Okay`.
 
 <img width="646" height="523" alt="name the database" src="https://github.com/user-attachments/assets/4f3ede54-741c-4c37-8c82-7a6fe190718f" /> &nbsp;
 
-Return to the osTicket form in the webUI. And fill in the database settings, with the name of the database createdd in HeidiSQL (i.e., `osTicket`) and the MySQL security credentials to authorize the database connection, then click `Install Now`
+Return to the osTicket form in the webUI. And fill in the database settings, with the name of the database created in HeidiSQL (i.e., `osTicket`) and the MySQL security credentials to authorize the database connection, then click `Install Now`
 <img width="1625" height="841" alt="osTicket fill out database settings-anno" src="https://github.com/user-attachments/assets/ff0344b8-f4d7-4e4e-9d2e-b8badebbdc23" />
 
 The webserver will begin running the installation. When finished, osTicket should be successfully installed!
