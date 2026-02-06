@@ -15,7 +15,7 @@ This repository provides a step-by-step guide for installing and deploying osTic
 - PHP
 
 ## Operating Systems Used
-*Documentation written assuming Windows 11 as host Operarting System*
+*Documentation written assuming Windows 11 as host Operating System*
 - Remote Computer: Windows 11 Pro (25H2)
 - Host Computer: Windows 11 Home (25H2)
 
@@ -64,9 +64,9 @@ _Note._ Windows 11 uses a x64 architecture, and does not support x86 (32-bit) so
 - Useful tool for managing PHP Installations, such as settings, extensions, and PHP registration
 
 [IIS URL Rewrite](https://www.iis.net/downloads/microsoft/url-rewrite)
-- Allows adminstrators to create URL rules such as redirects, HTTP requests, and URL simplification for search-engine indexing and memorizability
+- Allows administrators to create URL rules such as redirects, HTTP requests, and URL simplification for search-engine indexing and memorizability
 
-[Visual C++ Reistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-supported-redistributable-version)
+[Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-supported-redistributable-version)
 - Required package to run applications developed with Visual C++
 
 [MySQL Server (Community Edition)](https://dev.mysql.com/downloads/mysql/) (if building for production: [MySQL Server (Enterprise Edition)](https://www.mysql.com/downloads/)
@@ -87,8 +87,8 @@ Below is an image of the downloads folder containing all the (x64) dependencies 
 
 Before proceeding with dependency installation, IIS for Windows needs to be enabled. This will allow osTicket to run as a Webserver.
 
-Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
-*Alternatively*, use the Windows Start Menu, search for `Turn Windows features on or off`, right-click and press "Run as Adminstrator"
+Within the Remote VM, Press `Windows + R` then type `optionalfeatures`. and hit `Ctrl + Shift + Enter` to run the program with Administrator Privileges.
+*Alternatively*, use the Windows Start Menu, search for `Turn Windows features on or off`, right-click and press "Run as Administrator"
 
 <img width="764" height="476" alt="osTicket-WinR" src="https://github.com/user-attachments/assets/ed28c96c-d235-4281-a655-691c61eb5f60" /> &nbsp;
 
@@ -153,8 +153,8 @@ At this point you may have noticed that HeidiSQL has not been installed. This is
 In order to proceed any further, the PHP installation that was extracted earlier—into `C:\PHP`—will need to be registered within IIS Manager. This will inform the webserver that PHP is installed and ready to run PHP-based programs (i.e., osTicket). 
 Specifically, the file for registration is `PHP-cgi.exe`, an executable responsible for processing PHP scripts. Without this executable, osTicket would fail to run on the IIS Server.
 
-To register PHP, begin by pressing `Windows + R`, type `inetmgr` and hit `Ctrl + Shift + Enter` to run the program with Adminstrator Privileges.
-*Alternatively*, use the Windows Start Menu to search for `IIS`, right-clicking and press "Run as Adminstrator"
+To register PHP, begin by pressing `Windows + R`, type `inetmgr` and hit `Ctrl + Shift + Enter` to run the program with Administrator Privileges.
+*Alternatively*, use the Windows Start Menu to search for `IIS`, right-clicking and press "Run as Administrator"
 
 <img width="764" height="475" alt="Win+R IIS-Manager" src="https://github.com/user-attachments/assets/aad9e055-29b1-41a0-ac3b-60fe5ca36310" />
 
@@ -250,7 +250,7 @@ In the new dialog, type `Everyone` in the object names textbox, then select `Che
 _Note_. Assigning permissions in this manner is fine for this tutorial, but is seriously unwise for production environments.
 <img width="2484" height="1147" alt="everyone, check names, okay-anno-back" src="https://github.com/user-attachments/assets/a0447ce0-0a9f-449d-966a-64220bc718bc" />
 
-Once the prinicpal has been configured, assign the permissions `Full Control`, `Modify`, and `Write` by filling the adjacent checkboxes, and selecting "Okay". Based on the security principal this will effectively grant adminstrator privileges to *everyone*
+Once the principal has been configured, assign the permissions `Full Control`, `Modify`, and `Write` by filling the adjacent checkboxes, and selecting "Okay". Based on the security principal this will effectively grant adminstrator privileges to *everyone*
 <img width="2485" height="1147" alt="enable fc, mod, wr-anno-back" src="https://github.com/user-attachments/assets/067185fc-11ca-4904-a8cd-ee99755f327c" />
 
 With the permissions assigned, press `Apply` to load the new security settings, and then `Okay` to close the window.
@@ -269,7 +269,7 @@ In the downloads folder with the dependencies, Run the HeidiSQL installer and se
 After installation, open HeidiSQL. Select `New` and fill out the security info for the MySQL database that was created earlier. Then click `Open`
 <img width="1372" height="965" alt="fill heidi database settings-anno" src="https://github.com/user-attachments/assets/f94bbf03-79c8-4088-82f3-98e15b8144c2" />
 
-In the new menu, right click on the unnamed session. Click `Create New` then `Database`
+In the new menu, right-click on the unnamed session. Click `Create New` then `Database`
 <img width="2176" height="1436" alt="create new database-anno" src="https://github.com/user-attachments/assets/86510c86-c9d8-4ca0-a26c-186e05ae344e" />
 
 In the new dialog, name the database `osTicket`, then click `Okay`.
